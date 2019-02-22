@@ -14,7 +14,7 @@ var app = express();
 ///////// MongoDB connection /////////////////
 
 // Connection URL
-const url = "mongodb://meng:dbdb123@ds145895.mlab.com:45895/ratecourse";
+const url = 
 
 // Use connect method to connect to the Server
 MongoClient.connect(url, function(err, client) {
