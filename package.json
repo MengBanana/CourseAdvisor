@@ -11,11 +11,24 @@
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
+    "mongodb": "^2.2.36",
     "morgan": "~1.9.0"
   },
   "devDependencies": {
-    "eslint": "^5.12.1",
+    "eslint": "^5.14.1",
     "eslint-plugin-react": "^7.12.4",
     "prettier": "^1.16.4"
-  }
+  },
+  "description": "",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MengBanana/RateCourse.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MengBanana/RateCourse/issues"
+  },
+  "homepage": "https://github.com/MengBanana/RateCourse#readme"
 }
