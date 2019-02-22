@@ -3,8 +3,8 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var mongodb = require("mongodb");
-var MongoClient = require("mongodb").MongoClient;
+const MongoClient = require("mongodb").MongoClient;
+const assert = require("assert");
 var db;
 
 var indexRouter = require("./routes/index");
@@ -13,12 +13,13 @@ var usersRouter = require("./routes/users");
 var app = express();
 ///////// MongoDB connection /////////////////
 
-MongoClient.connect("mongodb://meng:dbdb123@ds145895.mlab.com:45895/ratecourse", function(err, database) {
-  if(err) return console.error(err);
+// Connection URL
+const url = "mongodb://meng:dbdb123@ds145895.mlab.com:45895/ratecourse";
 
-  db = database;
-  console.log("Connected to Mongodb...");
-  // the Mongo driver recommends starting the server here because most apps *should* fail to start if they have no DB.  If yours is the exception, move the server startup elsewhere. 
+// Use connect method to connect to the Server
+MongoClient.connect(url, function(err, client) {
+  assert.equal(null, err);
+  client.close();
 });
 /////////////////////////////////////////////
 
