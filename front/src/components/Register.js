@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { register } from "./userFunctions";
+//import { register } from "./userFunctions";
+import axios from "axios";
 
 class Register extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			first_name: "",
 			last_name: "",
@@ -12,6 +13,7 @@ class Register extends Component {
 			email: "",
 			bio: "",
 			image: "",
+			validInput:null,
 			errors: {}
 		};
 
@@ -22,27 +24,37 @@ class Register extends Component {
 	onChange(e) {
 		this.setState({
 			[e.target.name]: e.target.value
-		})
+		}, () => {
+			if (this.state.username != undefined && this.state.username != null && this.state.password != undefined && this.state.password != null) {
+				this.setState ({validInput : true, });
+			} else {
+				this.setState({
+					validInput:false,
+				});
+			}
+		});
 	}
 
 	onSubmit(e) {
 		e.preventDefault();
-
-		const newUser = {
-			first_name: this.state.first_name,
-			last_name: this.state.last_name,
-			username: this.state.username,
-			password: this.state.password,
-			email: this.state.email,
-			bio: this.state.bio,
-			image: this.state.image
+		if (this.state.validInput) {
+			this.addToDB();
 		}
+	}
 
-		register(newUser).then(res => {
-			if (res) {
-				this.props.history.push(`/login`);
+	addToDB() {
+		axios.post("/register", {
+			data: {
+				username: this.state.username,
+				password: this.state.password,
+				firstname: this.state.firstname,
+				lastname: this.state.lastname,
+				email: this.state.email,
+				bio:this.state.bio
 			}
-		});
+		}).then(()=> {
+      console.log( "Registered!");
+      });
 	}
 
 	render() {
@@ -51,7 +63,7 @@ class Register extends Component {
 				<div className="row">
 					<div className="col-md-6 mt-5 mx-auto">
 						<form noValidate onSubmit={this.onSubmit}>
-							<h1 calssName="h3 mb-3 font-weight-normal">
+							<h1 className="h3 mb-3 font-weight-normal">
 								Register
 							</h1>
 							<div className="form-group">

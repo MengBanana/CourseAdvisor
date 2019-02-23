@@ -1,52 +1,52 @@
-var express = require("express");
-var router = express.Router();
-//const User = require("../models/userModel.js");
-//const bcrypt = require("bcrypt-nodejs");
+const express = require("express");
+const router = express.Router();
+const mongoClient = require("mongodb").MongoClient;
+const assert = require("assert");
+
+var url = "mongodb://yhuangxu:dbdb123@ds145895.mlab.com:45895/ratecourse";
 
 /* GET users listing. */
-router.get("/", function(req, res, next) {
-  res.send("respond with a resource");
-});
-
-
-
-// router.post("/register", (req, res) => {
-//   const today = new Date();
-//   const userData = {
-//     username: req.body.username,
-//     password: req.body.password,
-//     firstname: req.body.firstname,
-//     lastname: req.body.lastname,
-//     email: req.body.email,
-//     bio: req.body.bio,
-//     created: today
-//   };
-
-//   User.findOne({
-//     username:req.body.username
-//   })
-
-//     .then( user=> {
-//       if (!user) {
-//         bcrypt.hash(req.body.password, 10, (err, hash) => {
-//           userData.password = hash;
-//           User.create(userData)
-//             .then(user => {
-//               res.json({
-//                 status: user.username + "Registered!"
-//               });
-//             })
-//             .catch(err => {
-//               res.send("error: " + err);
-//             });
-//         });
-//       } else {
-//         res.json({ error: "Username already exists."});
-//       }
-//     })
-//     .catch(err => {
-//       res.send ("error: " + err);
-//     });
+// router.get("/", function(req, res, next) {
+// 	res.send("respond with a resource");
 // });
+
+router.post("/register", function(req, res) {
+  mongoClient.connect(url, function(error, client) {
+	 assert.equal(error, null);
+		const data = req.body.data;
+		const db = client.db("ratecourse");
+		db.collection("users").findOne({ _id: data.username }, function(err,result
+		) {
+			if (err) {
+				res.status(500);
+				client.close();
+				res.send(error.message);
+			} else if (result !== null) {
+				res.status(400);
+				client.close();
+				res.send(
+					"username already exists!"
+				);
+			} else {
+				db.collection("users").insertOne(
+					{
+						username: data.username,
+						password: data.password,
+						firstname:data.firstname,
+						lastname:data.lastname,
+						email:data.email,
+						bio:data.bio
+					},
+					function(error, result) {
+						assert.equal(null, error);
+						assert.equal(1, result.insertedCount);
+						console.log("Inserted!");
+						client.close();
+					}
+				);
+			}
+		});
+	});
+});
 
 module.exports = router;
