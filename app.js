@@ -3,23 +3,22 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-// const MongoClient = require("mongodb").MongoClient;
-// const assert = require("assert");
+const MongoClient = require("mongodb").MongoClient;
+const assert = require("assert");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
 var app = express();
-///////// MongoDB connection /////////////////
 
 //Connection URL
-// const url = "////////";
+const url = "mongodb://meng:dbdb123@ds145895.mlab.com:45895/ratecourse";
 
-// //Use connect method to connect to the Server
-// MongoClient.connect(url, function(err, client) {
-//   assert.equal(null, err);
-//   client.close();
-// });
+//Use connect method to connect to the Server
+MongoClient.connect(url, function(err, client) {
+  assert.equal(null, err);
+  client.close();
+});
 /////////////////////////////////////////////
 
 // view engine setup
