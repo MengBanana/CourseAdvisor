@@ -29,10 +29,8 @@ class Register extends Component {
       },
       () => {
         if (
-          this.state.username !== undefined &&
-          this.state.username !== null &&
-          this.state.password !== undefined &&
-          this.state.password !== null
+          this.state.username !== "" &&
+          this.state.password !== ""
         ) {
           this.setState({ validInput: true });
         } else {
@@ -48,6 +46,11 @@ class Register extends Component {
     e.preventDefault();
     if (this.state.validInput) {
       this.addToDB();
+    } else {
+      this.setState({
+        registered: false,
+        errors : "Username and password are required."
+      });
     }
     //<Redirect to="/search" />;
   }  
@@ -72,9 +75,17 @@ class Register extends Component {
       })
       .catch(error => {
         console.log("Registered Failed!");
+        var errorMessage;
+        if (error.message.includes(401)){
+          errorMessage = "Username or Password not correct.";
+        } else if (error.message.includes(409)) {
+          errorMessage = "User already exists.";
+        }
         this.setState({
-          registered: false
+          registered: false,
+          errors: errorMessage
         });
+
       });
   }
 
@@ -87,7 +98,7 @@ class Register extends Component {
 
     const failed = (
       <Alert color="danger">
-        Register failed! Error: + {this.state.errors.message}
+        Error: {this.state.errors}
       </Alert>
       
     );
@@ -106,7 +117,7 @@ class Register extends Component {
               <h1 className="h3 mb-3 font-weight-normal">
                   Register
               </h1>
-              {this.state.registered == null ? info: (this.state.registered ? success: failed)}
+              {this.state.registered == null ? info : (this.state.registered ? success: failed)}
               <div className="form-group">
                 <label htmlFor="username">Username</label>
                 <input

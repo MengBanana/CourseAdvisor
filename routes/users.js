@@ -19,8 +19,7 @@ router.post("/register", function(request, response) {
     const data = request.body.data;
     db.collection("user").findOne({ username: data.username }, function(error,result) {
         if (result != null) {
-            response.status(409);
-            response.send("Username exists!");
+            response.status(409).send("User already exists.");
         } else {
             db.collection("user").insertOne(
                 { username: data.username, password: data.password },
@@ -37,8 +36,7 @@ router.post("/login", function(request, response) {
     db.collection("user").findOne({ username: data.username },
         function(error,result) {
         if (result == null || result.password != data.password) {
-            response.status(401);
-            response.send("Username or Password not correct");
+            response.status(401).send("Username or Password not correct.");
         } else {
             const sessionToken = require('uuid/v4');
             db.collection("usersession").insertOne(
@@ -50,7 +48,5 @@ router.post("/login", function(request, response) {
         }
     });
 });
-
-
 
 module.exports = router;
