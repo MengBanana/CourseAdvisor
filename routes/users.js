@@ -16,36 +16,37 @@ mongoClient.connect(url, function(error, client) {
 // });
 
 router.post("/register", function(request, response) {
-    const data = request.body.data;
-    db.collection("user").findOne({ username: data.username }, function(error,result) {
-        if (result != null) {
-            response.status(409).send("User already exists.");
-        } else {
-            db.collection("user").insertOne(
-                { username: data.username, password: data.password },
-                function(error, result) {
-                    response.send("Register success");
-                }
-            );
+  const data = request.body.data;
+  db.collection("user").findOne({ username: data.username }, function(error,result) {
+    if (result != null) {
+      response.status(409).send("User already exists.");
+    } else {
+      db.collection("user").insertOne({ username: data.username, password: data.password },
+        function() {
+          response.send("Register success");
         }
-    });
+      );
+    }
+ 
+  });
 });
 
 router.post("/login", function(request, response) {
-    const data = request.body.data;
-    db.collection("user").findOne({ username: data.username },
-        function(error,result) {
-        if (result == null || result.password != data.password) {
-            response.status(401).send("Username or Password not correct.");
-        } else {
-            const sessionToken = require('uuid/v4');
-            db.collection("usersession").insertOne(
-                { username: data.username, sessionToken: sessionToken},
-                function(error, result) {
-                    response.send(sessionToken);
-                }
-            );
-        }
+  const data = request.body.data;
+  db.collection("user").findOne({ username: data.username },
+    function(error,result) {
+      if (result == null || result.password != data.password) {
+        response.status(401).send("Username or Password not correct.");
+      } else {
+        // const sessionToken = require("uuid/v4");
+        // db.collection("usersession").insertOne(
+        //   { username: data.username, sessionToken: sessionToken},
+        //   function() {
+        //     response.send(sessionToken);
+        //   }
+        // );
+        response.send("Succeed!");
+      }
     });
 });
 

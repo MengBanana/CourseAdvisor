@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import {Alert} from "reactstrap";
-import { Redirect } from "react-router-dom";
+//import { Redirect } from "react-router-dom";
 
 class Register extends Component {
   constructor(props) {
@@ -15,8 +15,8 @@ class Register extends Component {
       bio: "",
       image: "",
       validInput: null,
-      errors: {},
-      registered: null
+      registered: null,
+      errors: {}
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -67,7 +67,7 @@ class Register extends Component {
           bio: this.state.bio
         }
       })
-      .then((res) => {
+      .then(() => {
         console.log("Registered!");
         this.setState({
           registered: true
@@ -90,20 +90,20 @@ class Register extends Component {
   }
 
   render() {
-    const success = (
+    var success = (
       <Alert color="success">
         Registered!
       </Alert>
     );
 
-    const failed = (
+    var failed = (
       <Alert color="danger">
         Error: {this.state.errors}
       </Alert>
       
     );
 
-    const info = (
+    var info = (
       <Alert color="light">
         * username and password are required *
       </Alert>
@@ -117,7 +117,7 @@ class Register extends Component {
               <h1 className="h3 mb-3 font-weight-normal">
                   Register
               </h1>
-              {this.state.registered == null ? info : (this.state.registered ? success: failed)}
+              {this.state.registered === null ? info : (this.state.registered ? success: failed)}
               <div className="form-group">
                 <label htmlFor="username">Username</label>
                 <input
