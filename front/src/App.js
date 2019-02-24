@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
 import Register from "./components/Register";
@@ -15,18 +15,16 @@ export default class App extends Component {
     return (
       <Router>
         <div className = "App">
-          
           <Navbar />
           <Route exact path = "/" component = {Landing}/>
-
-            
           <div className = "container">
-            <Route  path = "/register" component = {Register} />
-            <Route  path = "/login" component = {Login} />
-            <Route  path = "/profile" component = {Profile} />
-            <Route  path = "/search" component = {Search} />
+            <Switch>  
+              <Route path = "/register" component = {Register} />
+              <Route path = "/login" component = {Login} />
+              <Route path = "/profile" component = {Profile} />
+              <Route path = "/search" component = {Search} />
+            </Switch>
           </div>
-
           <Footer />
         </div>
       </Router>

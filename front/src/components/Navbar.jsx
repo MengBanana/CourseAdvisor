@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-class NavBar extends Component {
+export default class NavBar extends Component {
   logOut(e) {
     e.preventDefault();
     localStorage.removeItem("usertoken");
@@ -12,14 +12,10 @@ class NavBar extends Component {
     const loginRegLink = (
       <ul className="navbar-nav">
         <li className="nav-item">
-          <Link to="/login" className="nav-link">
-            Login
-          </Link>
+          <NavLink className="nav-link" activeClassName="active" to="/login">Login</NavLink>
         </li>
         <li className="nav-item">
-          <Link to="/register" className="nav-link">
-            Register
-          </Link>
+          <NavLink className="nav-link" activeClassName="active" to="/register">Register</NavLink>
         </li>
       </ul>
     );
@@ -27,9 +23,10 @@ class NavBar extends Component {
     const userLink = (
       <ul className="navbar-nav">
         <li className="nav-item">
-          <Link to="/profile" className="nav-link">
-            Home
-          </Link>
+          <NavLink className="nav-link" activeClassName="active" to="/search">Home</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" activeClassName="active" to="/profile">User</NavLink>
         </li>
         <li className="nav-item">
           <a href="/" onClick={this.logOut.bind(this)} className="nav-link">
@@ -45,9 +42,9 @@ class NavBar extends Component {
           <div className="collapse navbar-collapse justify-content-md-center">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <Link to="/" className="nav-link">
+                <NavLink to="/" className="nav-link">
                   <h4>Course Adviser</h4>
-                </Link>
+                </NavLink>
               </li>
             </ul>
             {localStorage.usertoken ? userLink : loginRegLink}
@@ -57,5 +54,3 @@ class NavBar extends Component {
     );
   }
 }
-
-export default withRouter(NavBar);

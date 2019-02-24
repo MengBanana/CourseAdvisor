@@ -12,7 +12,8 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "mongodb": "^2.2.36",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "eslint": "^5.14.1",
