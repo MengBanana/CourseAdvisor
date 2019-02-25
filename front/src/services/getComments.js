@@ -681,6 +681,10 @@ export function getComments() {
   return comments;
 }
 
+export function getCommentsByQuery(courseId, professor) {
+  return comments.filter(m => (m.courseId === courseId && m.professor === professor));
+}
+
 export function getComment(id) {
   return comments.find(m => m._id === id);
 }

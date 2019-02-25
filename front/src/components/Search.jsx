@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect} from "react-router-dom";
 import { getMatches } from "../services/getMatches";
 import { getProfessors } from "../services/getProfessors";
 import { getCourses} from "../services/getCourses";
@@ -14,11 +15,12 @@ class Search extends Component {
 
 		constructor(props) {
 		super(props);
-		this.handleDelete = this.handleDelete.bind(this);
+		// this.handleDelete = this.handleDelete.bind(this);
 		this.handleLike = this.handleLike.bind(this);
 		this.handleProfessorSelect = this.handleProfessorSelect.bind(this);
 		this.handlePageChange = this.handlePageChange.bind(this);
 		this.handleCourseSelect = this.handleCourseSelect.bind(this);
+		this.handleView = this.handleView.bind(this);
 		this.state = {
 		matches: [],
 		pageSize: 6,
@@ -45,12 +47,17 @@ class Search extends Component {
 	}
 
 
-	handleDelete(match) {
+/*	handleDelete(match) {
 		const matches = this.state.matches.filter(m => m._id !== match._id);
 		this.setState(
 			{matches:matches}
 			);
-	};
+	};*/
+
+	handleView(courseId, professor) {
+		console.log(courseId, professor);
+		this.props.history.push(`/comment/${courseId}/${professor}`);
+	}
 
 
 	handleLike(match) {
@@ -137,7 +144,7 @@ class Search extends Component {
 				<td >{match.courseName}</td>
 				<td >{match.professor}</td>
 				<td > <Like liked={match.liked} onClick={ () => this.handleLike(match)} /> </td>
-				<td><button onClick={() => this.handleDelete(match)} className="btn btn-danger btn-sm">View</button></td>
+				<td><button onClick={() => this.handleView(match.courseId, match.professor)} className="btn btn-danger btn-sm">View</button></td>
 				</tr>
 				))}
 			</tbody>

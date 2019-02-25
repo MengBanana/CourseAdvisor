@@ -23,7 +23,7 @@ return (
       <Route path = "/login" component = {Login} />
       <Route path = "/profile" component = {Profile} />
       <Route path = "/search" component = {Search} />
-      <Route path = "/comment:course?professor?" component = {Comment} />
+      <Route path = "/comment/:courseId/:professor" component = {Comment} />
       <Route exact path = "/" component = {Landing}/>
       <Route path="/not-found" component={NotFound} />
       <Redirect to="/not-found" />
