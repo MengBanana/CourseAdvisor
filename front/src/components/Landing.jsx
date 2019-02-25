@@ -1,9 +1,8 @@
 import React from "react";
-import "./style.css";
 
 const Landing = () => {
   return (
-<div>
+<div style={{fontFamily:"Noto Sans"}}>
 <div className="container">
     <div className="container">
         <h1 className="display-3">Hello, world!</h1>

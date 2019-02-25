@@ -15,7 +15,7 @@ import "./App.css";
 export default class App extends Component {
 render(){
 return (
-<div className = "container">
+<div style={{fontFamily:"Noto Sans"}}>
   <Navbar />
   <div className = "container">
     <Switch>  

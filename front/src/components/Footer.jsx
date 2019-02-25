@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 
 
-var style = {
+const style = {
   backgroundColor: "#F8F8F8",
   borderTop: "1px solid #E7E7E7",
   textAlign: "right",
@@ -12,7 +12,6 @@ var style = {
   bottom: "0",
   height: "60px",
   width: "100%",
-  margin: "20"
 };
 
 export default class Footer extends Component {

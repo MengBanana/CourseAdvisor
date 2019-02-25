@@ -8,7 +8,6 @@ import ListGroup from "./ListGroup";
 import Pagination from "./Pagination";
 import {paginate} from "../utils/paginate";
 import { Scrollbars } from "react-custom-scrollbars";
-import "./style.css";
 
 
 class Search extends Component {
@@ -105,7 +104,7 @@ class Search extends Component {
 		const filtered = selectedCourse && selectedCourse.description ? professorFiltered.filter(m => m.courseId === selectedCourse.courseId) : professorFiltered;
 		const paginatedmatches = paginate(filtered, currentPage, pageSize);
 		return (
-			<div className="container">
+			<div className="container" style={{fontFamily:"Noto Sans"}}>
 			<div className="row">
 			<span id="badge" className="badge badge-warning m-2">Got {filtered.length} Results!</span>
 			</div>

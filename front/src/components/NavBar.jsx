@@ -37,7 +37,7 @@ export default class NavBar extends Component {
     );
 
     return (
-      <div>
+      <div className="container" style={{fontFamily:"ZCOOL QingKe HuangYou"}}>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="collapse navbar-collapse justify-content-md-center">
             <ul className="navbar-nav mr-auto">
