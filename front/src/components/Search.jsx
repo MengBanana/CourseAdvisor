@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { getComments } from "../services/getComments";
+import React, { Component } from "react";
+import { getMatches } from "../services/getMatches";
 import { getProfessors } from "../services/getProfessors";
 import { getCourses} from "../services/getCourses";
 import Like from "./like";
 import ListGroup from "./ListGroup";
 import Pagination from "./Pagination";
 import {paginate} from "../utils/paginate";
-import { Scrollbars } from 'react-custom-scrollbars';
+import { Scrollbars } from "react-custom-scrollbars";
 import "./style.css";
 
 
@@ -20,7 +20,7 @@ class Search extends Component {
 		this.handlePageChange = this.handlePageChange.bind(this);
 		this.handleCourseSelect = this.handleCourseSelect.bind(this);
 		this.state = {
-		comments: [],
+		matches: [],
 		pageSize: 6,
 		professors: [],
 		courses: [],
@@ -31,11 +31,11 @@ class Search extends Component {
 
 
 	componentDidMount() {
-		const professors = [{name: 'All Professors'},...getProfessors()];
-		const courses = [{name: 'All Courses'}, ...getCourses()];
+		const professors = [{professor: "All Professors"},...getProfessors()];
+		const courses = [{courseId: "All Courses"}, ...getCourses()];
 		this.setState(
 		{
-			comments:getComments(),
+			matches:getMatches(),
 			professors:professors,
 			courses:courses
 
@@ -45,23 +45,23 @@ class Search extends Component {
 	}
 
 
-	handleDelete(comment) {
-		const comments = this.state.comments.filter(m => m._id !== comment._id);
+	handleDelete(match) {
+		const matches = this.state.matches.filter(m => m._id !== match._id);
 		this.setState(
-			{comments:comments}
+			{matches:matches}
 			);
 	};
 
 
-	handleLike(comment) {
-		const comments = [...this.state.comments];
-		const index = comments.indexOf(comment);
-		comments[index] = {...comment};
-		comments[index].liked = !comments[index].liked;
+	handleLike(match) {
+		const matches = [...this.state.matches];
+		const index = matches.indexOf(match);
+		matches[index] = {...match};
+		matches[index].liked = !matches[index].liked;
 		this.setState(
-			{comments:comments}
+			{matches:matches}
 			)
-		console.log(comment);
+		console.log(match);
 	}
 
 	handleProfessorSelect(professor) {
@@ -90,13 +90,13 @@ class Search extends Component {
 		const {
 			selectedProfessor,
 			selectedCourse,
-			comments: allComments,
+			matches: allmatches,
 			currentPage,
 			pageSize
 		} = this.state;
-		const professorFiltered = selectedProfessor && selectedProfessor.description ? allComments.filter(m => m.professor === selectedProfessor.name) : allComments;
-		const filtered = selectedCourse && selectedCourse.description ? professorFiltered.filter(m => m.courseId === selectedCourse.name) : professorFiltered;
-		const paginatedComments = paginate(filtered, currentPage, pageSize);
+		const professorFiltered = selectedProfessor && selectedProfessor.description ? allmatches.filter(m => m.professor === selectedProfessor.professor) : allmatches;
+		const filtered = selectedCourse && selectedCourse.description ? professorFiltered.filter(m => m.courseId === selectedCourse.courseId) : professorFiltered;
+		const paginatedmatches = paginate(filtered, currentPage, pageSize);
 		return (
 			<div className="container">
 			<div className="row">
@@ -107,14 +107,14 @@ class Search extends Component {
 			<ListGroup 
 			items={this.state.courses} onItemSelect={this.handleCourseSelect}
 			selectedItem={this.state.selectedCourse}
-			valueProperty="name"
+			valueProperty="courseId"
 			/>
 			</Scrollbars>
 			<Scrollbars style={{ height: 500 }} className="col-1">
 			<ListGroup 
 			items={this.state.professors} onItemSelect={this.handleProfessorSelect}
 			selectedItem={this.state.selectedProfessor}
-			valueProperty="name"
+			valueProperty="professor"
 			/>
 			</Scrollbars>
 			<div className="col-10">
@@ -130,14 +130,14 @@ class Search extends Component {
 			</tr>
 			</thead>
 			<tbody>
-			{ paginatedComments.map( comment => (
-				<tr key={comment._id}>
+			{ paginatedmatches.map( match => (
+				<tr key={match._id}>
 				<th scope="row"></th>
-				<td >{comment.courseId}</td>
-				<td >{comment.courseName}</td>
-				<td >{comment.professor}</td>
-				<td > <Like liked={comment.liked} onClick={ () => this.handleLike(comment)} /> </td>
-				<td><button onClick={() => this.handleDelete(comment)} className="btn btn-danger btn-sm">View</button></td>
+				<td >{match.courseId}</td>
+				<td >{match.courseName}</td>
+				<td >{match.professor}</td>
+				<td > <Like liked={match.liked} onClick={ () => this.handleLike(match)} /> </td>
+				<td><button onClick={() => this.handleDelete(match)} className="btn btn-danger btn-sm">View</button></td>
 				</tr>
 				))}
 			</tbody>

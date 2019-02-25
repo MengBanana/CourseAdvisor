@@ -30,7 +30,7 @@ return (
     </Switch>
   </div>
   <div>
-  <Footer />
+  
   </div>
 </div>
 );
