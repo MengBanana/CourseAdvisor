@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import queryString from "query-string";
-import { getCommentsByQuery } from "../services/getComments";
 import Like from "./like";
+
+import axios from "axios";
 
 // list all the comments comment professor and course
 class Comment extends Component {
@@ -15,12 +16,45 @@ class Comment extends Component {
         comments:[]
     }
   }
+  getComments(){
+	  axios
+			.get("/search/getComments", {
+				params: {
+					professor: this.selectedprofessor,
+					course: this.selectedCourse
+				}
+			})
+			.then(list => {
+				console.log("got COMMENTS data!");
+				this.setState({
+					matches: list.comment.toString()
+				});
+			})
+			.catch(error => {
+				console.log("Got COMMENTS Failed!", error);
+			});
+	}
+
+	saveComments(){
+		axios
+			.post("/search/saveComments", {
+				data: {
+					professor: this.selectedprofessor,
+					course: this.selectedCourse,
+					comments: this.comments,
+					username: this.username
+				}
+			})
+			.then(res => {
+				console.log(res);
+			})
+			.catch(error => {
+				console.log("saveComments Failed!", error);
+			});
+	}
 
     componentDidMount() {
-        const comments=getCommentsByQuery(this.state.courseId, this.state.professor);
-        this.setState(
-        {comments:comments}
-        )
+        this.getComments();
     }
 
   handleLike(comment) {
@@ -44,7 +78,7 @@ class Comment extends Component {
       <div className="card-body">
       <h5 className="card-title">{comment.courseId}:{comment.courseName}</h5>
       <h5 className="card-title">{comment.professor}</h5>
-      <p className="card-text">"{comment.comment}" by {comment.username}</p>
+      <p className="card-text">{comment.comment} by {comment.username}</p>
       <Like liked={comment.liked} onClick={ () => this.handleLike(comment)} />
       </div>
       </div>

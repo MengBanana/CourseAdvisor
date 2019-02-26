@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
 
-var url = 
+var url = "mongodb://yhuangxu:dbdb123@ds145895.mlab.com:45895/ratecourse";
 var db;
 mongoClient.connect(url, function(error, client) {
     assert.equal(error, null);
@@ -24,7 +24,7 @@ router.post("/register", function(request, response) {
             db.collection("user").insertOne(
                 { username: data.username, password: data.password },
                 function(error, result) {
-                    response.send("Register success");
+                    response.send(result);
                 }
             );
         }
@@ -38,13 +38,13 @@ router.post("/login", function(request, response) {
         if (result == null || result.password != data.password) {
             response.status(401).send("Username or Password not correct.");
         } else {
-            const sessionToken = require('uuid/v4');
-            db.collection("usersession").insertOne(
-                { username: data.username, sessionToken: sessionToken},
-                function(error, result) {
-                    response.send(sessionToken);
-                }
-            );
+            // const sessionToken = require('uuid/v4');
+            // db.collection("usersession").insertOne(
+            //     { username: data.username, sessionToken: sessionToken},
+            //     function(error, result) {
+            //         response.send(sessionToken);
+            //     }
+            // );
         }
     });
 });

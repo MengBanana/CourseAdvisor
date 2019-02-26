@@ -7,3 +7,19 @@ router.get("/", function(req, res, next) {
 });
 
 module.exports = router;
+
+router.post("/register", function(request, response) {
+    const data = request.body.data;
+    db.collection("user").findOne({ username: data.username }, function(error,result) {
+        if (result != null) {
+            response.status(409).send("User already exists.");
+        } else {
+            db.collection("user").insertOne(
+                { username: data.username, password: data.password },
+                function(error, result) {
+                    response.send("Register success");
+                }
+            );
+        }
+    });
+});

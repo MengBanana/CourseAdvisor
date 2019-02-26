@@ -8,11 +8,12 @@ const assert = require("assert");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var searchRouter = require("./routes/search");
 
 var app = express();
 
 //Connection URL
-const url = 
+const url = "mongodb://yhuangxu:dbdb123@ds145895.mlab.com:45895/ratecourse";
 
 //Use connect method to connect to the Server
 MongoClient.connect(url, function(err, client) {
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, "/front/build")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/search", searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
