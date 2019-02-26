@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import queryString from "query-string";
+import { getCommentsByQuery } from "../services/getComments";
+// import { getProfessor } from "../services/getProfessors";
+// import { getCourse} from "../services/getCourses";
 import Like from "./like";
 import Popup from "reactjs-popup";
 import axios from "axios";
@@ -11,8 +14,8 @@ class Comment extends Component {
         super(props);
         this.handleLike = this.handleLike.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         // this.handleOnClickAddComment = this.handleOnClickAddComment.bind(this);
         this.state =  {
             courseId:this.props.match.params.courseId,
@@ -34,47 +37,6 @@ class Comment extends Component {
             //{professorInstance:professorInstance}
             )
     }
-  
-  getComments(){
-	 axios
-			.get("/search/getComments", {
-				params: {
-					professor: this.selectedprofessor,
-					course: this.selectedCourse
-				}
-			})
-			.then(list => {
-				console.log("got COMMENTS data!");
-				this.setState({
-					matches: list.comment.toString()
-				});
-			})
-			.catch(error => {
-				console.log("Got COMMENTS Failed!", error);
-			});
-	}
-
-	saveComments(){
-		axios
-			.post("/search/saveComments", {
-				data: {
-					professor: this.selectedprofessor,
-					course: this.selectedCourse,
-					comments: this.comments,
-					username: this.username
-				}
-			})
-			.then(res => {
-				console.log(res);
-			})
-			.catch(error => {
-				console.log("saveComments Failed!", error);
-			});
-	}
-
-  componentDidMount() {
-    this.getComments();
-  }
 
     handleLike(comment) {
         const comments = [...this.state.comments];
@@ -87,7 +49,7 @@ class Comment extends Component {
         console.log(comment);
     }
 
-    onChange(e) {
+    handleChange(e) {
     this.setState(
       {
         [e.target.name]: e.target.value
@@ -95,35 +57,30 @@ class Comment extends Component {
     );
   }  
 
-  onSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     this.addToDB();
     //<Redirect to="/search" />;
   } 
 
-  addToDB() {
+    addToDB() {
     axios
-      .post("/users/comment", {
+      .post("/search/saveComments", {
         data: {
           username: "xz2969",
           professor: this.state.professor,
           courseId: this.state.courseId,
           courseName: this.state.courseName,
-          comment: this.state.newComment
+          comment: this.state.comment
         }
       })
-      .then(() => {
-        this.props.history.push(`/comment/${this.state.courseId}/${this.state.professor}`);
-      })
-      /*.catch(error => {
+      .then(res => {
+        console.log(res);
+          this.props.history.push(`/comment/${this.state.courseId}/${this.state.professor}`);
+        })
+      .catch(error => {
         console.log("Comment Failed!");
         console.log(error);
-      });*/
-      .then(response => { 
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error.response);
       });
   }
 
@@ -156,7 +113,7 @@ class Comment extends Component {
               </div>
               </div>
               ))}
-            <div className="card col-3 m-4" style={{cursor: "pointer", borderRadius:"10%"}}>
+            <div className="card col-3 m-4" style={{borderRadius:"10%"}}>
             <div className="card-body">
             <div>
             <i className="far fa-plus-square fa-7x d-flex justify-content-center" style={{opacity:"0.5"}}></i>
@@ -169,7 +126,7 @@ class Comment extends Component {
             <div className="modal-dialog" role="document">
             <div className="modal-content">
             <div className="modal-header text-center">
-            <h6 className="modal-title w-100 font-weight-bold">New Comment for {this.state.courseId}:{this.state.professor}</h6>
+            <h6 className="modal-title w-100 font-weight-bold">New Comment for "{this.state.courseId} - {this.state.professor}"</h6>
             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -177,12 +134,12 @@ class Comment extends Component {
             <div className="modal-body mx-3">
             <div className="md-form mb-5">
             <i className="far fa-comments prefix grey-text"></i>
-            <textarea type="textarea" id="defaultForm" name="newComment" className="form-control" value={this.state.newComment} onChange={this.onChange}/>
+            <textarea type="textarea" id="defaultForm" placeholder="Enter your comment" name="comment" className="form-control" value={this.state.comment} onChange={this.handleChange}/>
             </div>
 
             </div>
             <div className="modal-footer d-flex justify-content-center">
-            <button className="btn btn-info" onClick={this.onSubmit}>Submit</button>
+            <button className="btn btn-info" onClick={this.handleSubmit}>Submit</button>
             </div>
             </div>
             </div>

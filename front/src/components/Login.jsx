@@ -13,11 +13,11 @@ class Login extends Component {
       loggedin: null,
       errors: {}
     };
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onChange(e) {
+  handleChange(e) {
     this.setState(
       {
         [e.target.name]: e.target.value
@@ -37,7 +37,7 @@ class Login extends Component {
     );
   }
 
-  onSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     if (this.state.validInput) {
       this.verify();
@@ -95,7 +95,7 @@ class Login extends Component {
       <div className="container" style={{fontFamily:"Crete Round"}}>
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
-            <form noValidate onSubmit={this.onSubmit}>
+            <form noValidate onSubmit={this.handleSubmit}>
               <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
               {this.state.loggedin === null? null: this.state.loggedin? success : failed}
               <div className="form-group">
@@ -110,7 +110,7 @@ class Login extends Component {
                   name="username"
                   placeholder="username"
                   value={this.state.username}
-                  onChange={this.onChange}
+                  onChange={this.handleChange}
                 />
                 </div>
               </div>
@@ -126,7 +126,7 @@ class Login extends Component {
                   name="password"
                   placeholder="password"
                   value={this.state.password}
-                  onChange={this.onChange}
+                  onChange={this.handleChange}
                 />
                 </div>
               </div>

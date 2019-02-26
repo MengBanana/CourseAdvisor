@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect} from "react-router-dom";
 import { getMatches } from "../services/getMatches";
 import { getProfessors } from "../services/getProfessors";
 import { getCourses} from "../services/getCourses";
@@ -21,38 +22,25 @@ class Search extends Component {
 		this.handleView = this.handleView.bind(this);
 		this.state = {
 		matches: [],
-		pageSize: 6,
+		pageSize: 7,
 		professors: [],
 		courses: [],
 		selectedProfessor: null,
 		selectedCourse: null,
-		currentPage: 1,
-		professorFiltered: [],
-		filtered: [],
-		paginatedmatches: []
+		currentPage: 1
 		};
-		// const professorFiltered = selectedProfessor && selectedProfessor.description ? allmatches.filter(m => m.professor === selectedProfessor.professor) : allmatches;
-		// const filtered = selectedCourse && selectedCourse.description ? professorFiltered.filter(m => m.courseId === selectedCourse.courseId) : professorFiltered;
-		// const paginatedmatches = paginate(filtered, currentPage, pageSize);
 	}
 
 
 	componentDidMount() {
 		const professors = [{professor: "All Professors"},...getProfessors()];
 		const courses = [{courseId: "All Courses"}, ...getCourses()];
-		const matches = getMatches();
-
-		const professorFiltered = this.state.selectedProfessor && this.state.selectedProfessor.description ? this.state.allmatches.filter(m => m.professor === this.state.selectedProfessor.professor) : this.state.matches;
-		const filtered = this.state.selectedCourse && this.state.selectedCourse.description ? professorFiltered.filter(m => m.courseId === this.state.selectedCourse.courseId) : professorFiltered;
-		const paginatedmatches = paginate(filtered, this.currentPage, this.pageSize);
 		this.setState(
 		{
-			matches:matches,
+			matches:getMatches(),
 			professors:professors,
-			courses:courses,
-			professorFiltered:professorFiltered,
-			filtered:filtered,
-			paginatedmatches:paginatedmatches
+			courses:courses
+
 		}
 
 		)
@@ -86,10 +74,7 @@ class Search extends Component {
 	handleProfessorSelect(professor) {
 		this.setState(
 			{selectedProfessor:professor,
-				currentPage:1,
-				/*professorFiltered: this.state.selectedProfessor && this.state.selectedProfessor.description ? this.state.matches.filter(m => m.professor === this.state.selectedProfessor.professor) : this.state.matches,
-				filtered:this.state.selectedCourse && this.state.selectedCourse.description ? this.state.professorFiltered.filter(m => m.courseId === this.state.selectedCourse.courseId) : this.state.professorFiltered,
-				paginatedmatches: paginate(this.state.filtered, this.state.currentPage, this.state.pageSize)*/
+				currentPage:1
 			}
 			)
 	}
@@ -97,10 +82,7 @@ class Search extends Component {
 	handleCourseSelect(course) {
 		this.setState(
 			{selectedCourse:course,
-				currentPage:1,
-				/*professorFiltered: this.state.selectedProfessor && this.state.selectedProfessor.description ? this.state.matches.filter(m => m.professor === this.state.selectedProfessor.professor) : this.state.matches,
-				filtered:this.state.selectedCourse && this.state.selectedCourse.description ? this.state.professorFiltered.filter(m => m.courseId === this.state.selectedCourse.courseId) : this.state.professorFiltered,
-				paginatedmatches: paginate(this.state.filtered, this.state.currentPage, this.state.pageSize)*/
+				currentPage:1
 			}
 			)
 	}
@@ -112,11 +94,18 @@ class Search extends Component {
 	}
 
 	render() {
-		const professorFiltered = this.state.selectedProfessor && this.state.selectedProfessor.description ? this.state.allmatches.filter(m => m.professor === this.state.selectedProfessor.professor) : this.state.matches;
-		const filtered = this.state.selectedCourse && this.state.selectedCourse.description ? professorFiltered.filter(m => m.courseId === this.state.selectedCourse.courseId) : this.state.professorFiltered;
-		const paginatedmatches = paginate(filtered, this.currentPage, this.pageSize);
+		const {
+			selectedProfessor,
+			selectedCourse,
+			matches: allmatches,
+			currentPage,
+			pageSize
+		} = this.state;
+		const professorFiltered = selectedProfessor && selectedProfessor.description ? allmatches.filter(m => m.professor === selectedProfessor.professor) : allmatches;
+		const filtered = selectedCourse && selectedCourse.description ? professorFiltered.filter(m => m.courseId === selectedCourse.courseId) : professorFiltered;
+		const paginatedmatches = paginate(filtered, currentPage, pageSize);
 		return (
-			<div className="container" style={{fontFamily:"Noto Sans"}}>
+			<div className="container" style={{fontFamily:"Crete Round"}}>
 			<div className="row">
 			<span id="badge" className="badge badge-warning m-2">Got {filtered.length} Results!</span>
 			</div>

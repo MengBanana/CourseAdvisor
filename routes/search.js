@@ -60,7 +60,8 @@ router.get("/getComments", function(request, response) {
 router.post("/saveComments", function(request, response) {
   const data = request.body.data;
   db.collection("comment").insertOne({ 
-    courseId: data.course, 
+    courseId: data.courseId, 
+    courseName: data.courseName,
     professor: data.professor, 
     username:data.username, 
     comment: data.comments, 

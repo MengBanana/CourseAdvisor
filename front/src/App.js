@@ -22,7 +22,7 @@ export default class App extends Component {
             <Route path = "/register" component = {Register} />
             <Route path = "/login" component = {Login} />
             <Route path = "/profile" component = {Profile} />
-            <Route path = "/search" component = {Search} />
+            /*<Route path = "/search" component = {Search} />*/
             <Route path = "/comment/:courseId/:professor" component = {Comment} />
             <Route exact path = "/" component = {Landing}/>
             <Route path="/not-found" component={NotFound} />
