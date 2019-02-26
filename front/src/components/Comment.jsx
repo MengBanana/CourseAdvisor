@@ -25,14 +25,14 @@ class Comment extends Component {
     }
 
     async componentDidMount() {
-        const comments = await getCommentsByQuery(this.state.courseId, this.state.professor);
-        //const courseInstance = await getCourse(this.state.courseId);
-        //const professorInstance= await getProfessor(this.state.professor);
-        this.setState (
-            {comments:comments},
-            //{courseInstance:courseInstance},
-            //{professorInstance:professorInstance}
-            )
+        // const comments = await getCommentsByQuery(this.state.courseId, this.state.professor);
+        // //const courseInstance = await getCourse(this.state.courseId);
+        // //const professorInstance= await getProfessor(this.state.professor);
+        // this.setState (
+        //     {comments:comments},
+        //     //{courseInstance:courseInstance},
+        //     //{professorInstance:professorInstance}
+        //     )
     }
   
   getComments(){

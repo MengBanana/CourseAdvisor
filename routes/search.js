@@ -35,15 +35,26 @@ router.get("/getAllCourses", function(err,res) {
   });
 });
 
-router.get("/getMatches", function(request, response) {
-  const data = request.query;
-  db.collection("CPpair").find({ professor: data.professor, courseId: data.course}).toArray(function(error,result) {
+router.get("/getCPList", function(err,res) {
+  db.collection("CPpair").find().toArray(function(error,result) {
     if(error) {
       throw error;
     }
-    console.log("got cp list!");
-    response.send(result);
+    console.log("got CPpair list!");
+    res.send(result);
   });
+});
+
+router.get("/getMatches", function(request, response) {
+  const data = request.query;
+  db.collection("CPpair").find({ professor: data.professor, courseId: data.course})
+    .toArray(function(error,result) {
+      if(error) {
+        throw error;
+      }
+      console.log("got MATCH list!");
+      response.send(result);
+    });
 });
 
 router.get("/getComments", function(request, response) {
@@ -60,12 +71,11 @@ router.get("/getComments", function(request, response) {
 router.post("/saveComments", function(request, response) {
   const data = request.body.data;
   db.collection("comment").insertOne({ 
-    courseId: data.courseId, 
-    courseName: data.courseName,
+    courseId: data.course, 
     professor: data.professor, 
     username:data.username, 
     comment: data.comments, 
-    created: new Date()}),(function(error) {
+  }),(function(error) {
     if(error) {
       throw error;
     }

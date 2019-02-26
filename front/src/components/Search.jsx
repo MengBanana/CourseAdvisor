@@ -17,6 +17,7 @@ class Search extends Component {
     this.handlePageChange = this.handlePageChange.bind(this);
     this.handleCourseSelect = this.handleCourseSelect.bind(this);
     this.handleView = this.handleView.bind(this);
+
     this.state = {
       matches: [],
       pageSize: 7,
@@ -32,21 +33,9 @@ class Search extends Component {
   }
 
   componentDidMount() {
-    const pList =  [ ...this.getProfessorList()];
-    const cList = [ ...this.getCourseList()];
-    const mList =  this.getMatches();
-    this.setState({
-      professors: pList,
-      courses: cList,
-      matches: mList,
-      professorFiltered: pRes,
-      filtered: fRes,
-      paginatedmatches: pgRes
-    });
-    const pRes = (this.state.selectedProfessor.length === null? this.state.professors: this.state.matches.filter(m => m.professor === this.state.selectedProfessor.professor));
-    const fRes = this.state.selectedCourse.length === null? this.state.professorFiltered: this.state.professorFiltered.filter(m => m.courseId === this.state.selectedCourse.courseId);
-    const pgRes = paginate(this.state.filtered, this.state.currentPage, this.state.pageSize);
-    
+    this.getProfessorList();
+    this.getCourseList();
+    this.getCPList();
   }
 
   getProfessorList() {
@@ -54,8 +43,8 @@ class Search extends Component {
       .get("/search/getAllProfessors", {})
       .then(data => {
         console.log("got P data!");
-        this.setState({
-          professors: data
+        this.setState ({
+          professors:[{professor: "All Professors"},...data.data]
         });
       })
       .catch(err => {
@@ -68,8 +57,8 @@ class Search extends Component {
       .get("/search/getAllCourses", {})
       .then(data => {
         console.log("got C data!");
-        this.setState({
-          courses: data
+        this.setState ({
+          courses: [{courseId: "All Courses"},...data.data]
         });
       })
       .catch(error => {
@@ -77,18 +66,38 @@ class Search extends Component {
       });
   }
 
+  getCPList(){
+    axios
+      .get("/search/getCPList", {})
+      .then(data => {
+        console.log("got CP data!");
+        const pm = paginate(data.data, this.state.currentPage, this.state.pageSize);
+        this.setState ({
+          matches: data.data,
+          filtered: data.data,
+          paginatedmatches: pm
+        });
+        console.log("state", this.state);
+      })
+      .catch(error => {
+        console.log("Got CP Failed!", error);
+      });
+  }
+
   getMatches() {
     axios
       .get("/search/getMatches", {
         params: {
-          professor: this.selectedprofessor,
-          course: this.selectedCourse
+          professor: this.state.selectedProfessor,
+          course: this.state.selectedCourse,
         }
       })
-      .then(list => {
-        console.log("got CP data!");
+      .then(data => {
+        console.log("got MATCH data!");
+        const pm = paginate(data.data, this.state.currentPage, this.state.pageSize);
         this.setState({
-          matches: list
+          matches: data.data,
+          paginatedmatches: pm
         });
       })
       .catch(error => {
