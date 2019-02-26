@@ -9,15 +9,15 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      validInput: null,
+      validInput: false,
       loggedin: null,
       errors: {}
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  handleChange(e) {
+  onChange(e) {
     this.setState(
       {
         [e.target.name]: e.target.value
@@ -37,7 +37,7 @@ class Login extends Component {
     );
   }
 
-  handleSubmit(e) {
+  onSubmit(e) {
     e.preventDefault();
     if (this.state.validInput) {
       this.verify();
@@ -62,6 +62,7 @@ class Login extends Component {
         this.setState({
           loggedin: true
         });
+        this.props.history.push("/");
       })
       .catch(error => {
         console.log("Login Failed!");
@@ -95,7 +96,7 @@ class Login extends Component {
       <div className="container" style={{fontFamily:"Crete Round"}}>
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
-            <form noValidate onSubmit={this.handleSubmit}>
+            <form noValidate onSubmit={this.onSubmit}>
               <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
               {this.state.loggedin === null? null: this.state.loggedin? success : failed}
               <div className="form-group">
@@ -110,7 +111,7 @@ class Login extends Component {
                   name="username"
                   placeholder="username"
                   value={this.state.username}
-                  onChange={this.handleChange}
+                  onChange={this.onChange}
                 />
                 </div>
               </div>
@@ -126,7 +127,7 @@ class Login extends Component {
                   name="password"
                   placeholder="password"
                   value={this.state.password}
-                  onChange={this.handleChange}
+                  onChange={this.onChange}
                 />
                 </div>
               </div>
