@@ -8,7 +8,7 @@ const Landing = () => {
   backgroundSize: "cover"*/
 }
   return (
-    <div style={{fontFamily:"Crete Round"}}>
+    <div style={{fontFamily:"Crete Round" , opacity:"0.8"}}>
 
       <div className="jumbotron p-md-5 text-white rounded bg-warning">
         <div className="col-md px-0">

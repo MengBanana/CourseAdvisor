@@ -77,19 +77,26 @@ class Comment extends Component {
       .then(() => {
           this.props.history.push(`/comment/${this.state.courseId}/${this.state.professor}`);
         })
-      .catch(error => {
+      /*.catch(error => {
         console.log("Comment Failed!");
-      });
+        console.log(error);
+      });*/
+      .then(response => { 
+    console.log(response)
+})
+.catch(error => {
+    console.log(error.response)
+});
   }
 
 
     render() {
-        console.log(this.state.courseInstance);
-        console.log(this.state.professorInstance);
+        // console.log(this.state.courseInstance);
+        // console.log(this.state.professorInstance);
         console.log(this.state.comments);
         const {comments} = this.state;
         return (
-            <div style={{fontFamily:"Crete Round"}}>
+            <div style={{fontFamily:"Crete Round", opacity:"0.8"}}>
             <div className="jumbotron-fluid p-md-5 text-white rounded bg-warning">
             <div className="col-md px-0">
             <h1 className="display-4 font-italic">This is Course Description</h1>
@@ -114,7 +121,7 @@ class Comment extends Component {
             <div className="card col-3 m-4" style={{cursor: "pointer", borderRadius:"10%"}}>
             <div className="card-body">
             <div>
-            <i className="far fa-plus-square fa-7x d-flex justify-content-center "></i>
+            <i className="far fa-plus-square fa-7x d-flex justify-content-center" style={{opacity:"0.5"}}></i>
             </div>
             </div>
 
