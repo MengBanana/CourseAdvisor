@@ -22,7 +22,7 @@ class Search extends Component {
 		this.handleView = this.handleView.bind(this);
 		this.state = {
 		matches: [],
-		pageSize: 6,
+		pageSize: 7,
 		professors: [],
 		courses: [],
 		selectedProfessor: null,

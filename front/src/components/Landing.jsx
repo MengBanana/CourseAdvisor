@@ -6,8 +6,8 @@ const Landing = () => {
 
     <div className="jumbotron p-md-5 text-white rounded bg-warning">
     <div className="col-md px-0">
-    <h1 className="display-4 font-italic">Welcome</h1>
-    <p className="lead my-3">Course Advisor is an online platform designd for Northeastern University Sillicon Valley campus students to share experience and write comments for a specific Computer Science course or professor</p>
+    <h1 className="display-4 font-italic">"Who" is Course Advisor?</h1>
+    <p className="lead my-3">An online platform designd for Northeastern University Sillicon Valley campus students to share experience and write comments for a specific Computer Science course or professor</p>
 
     </div>
     </div>

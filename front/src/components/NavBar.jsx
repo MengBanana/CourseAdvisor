@@ -43,7 +43,7 @@ export default class NavBar extends Component {
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                 <NavLink to="/" className="nav-link">
-                  <h4>Course Adviser</h4>
+                  <h4>Course Advisor</h4>
                 </NavLink>
               </li>
             </ul>
