@@ -111,3 +111,7 @@ const courses = [
 export function getCourses() {
   return courses.filter(g => g);
 }
+
+export function getCourse(courseId) {
+  return courses.find(m => (m.courseId === courseId));
+}

@@ -55,6 +55,8 @@ class Register extends Component {
     //<Redirect to="/search" />;
   }  
 
+
+
   addToDB() {
     axios
       .post("/users/register", {
@@ -68,11 +70,13 @@ class Register extends Component {
         }
       })
       .then(() => {
-        console.log("Registered!");
-        this.setState({
-          registered: true
-        });
-      })
+          this.setState({
+          registered: true,
+           });
+          alert("Registered!");
+          // success redirect to login
+          this.props.history.push("./login");
+        })
       .catch(error => {
         console.log("Registered Failed!");
         var errorMessage;
@@ -110,7 +114,7 @@ class Register extends Component {
     );
     
     return (
-      <div className="container">
+      <div className="container" style={{fontFamily:"Crete Round"}}>
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>

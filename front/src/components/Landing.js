@@ -1,6 +1,5 @@
 import React from "react";
 import { Jumbotron, Container, Row } from "reactstrap";
-import "./style.css";
 
 const Landing = () => {
   return (
@@ -10,7 +9,7 @@ const Landing = () => {
         <p className="lead" >This is a course & professor rating site for NEU-SV students</p>
       </Container>
       <Row>
-        {    <img src={require("./neu.jpg") } alt="NEU" />}
+        {    }
       </Row>
     </Jumbotron>
   );

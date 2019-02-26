@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./style.css";
+
+import React, { Component } from 'react';
 
 class ListGroup extends Component {
 	render() {

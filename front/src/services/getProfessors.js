@@ -71,3 +71,7 @@ export function getProfessors() {
   return professors.filter(g => g);
 }
 
+export function getProfessor(professor) {
+  return professors.find(m => m.professor === professor);
+}
+
