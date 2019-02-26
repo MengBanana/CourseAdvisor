@@ -20,28 +20,40 @@ class Search extends Component {
     this.state = {
       matches: [],
       pageSize: 7,
-      professors: [],
-      courses: [],
+      professors: ["All Professors"],
+      courses: ["All Courses"],
       selectedProfessor: null,
       selectedCourse: null,
-      currentPage: 1
+      currentPage: 1,
+      professorFiltered: [],
+      filtered : [],
+      paginatedmatches: []
     };
   }
 
   componentDidMount() {
-    const pList = ["All Professors", ...this.getProfessorList()];
-    const cList = ["All Courses", ...this.getCourseList()];
+    const pList =  [ ...this.getProfessorList()];
+    const cList = [ ...this.getCourseList()];
+    const mList =  this.getMatches();
     this.setState({
       professors: pList,
       courses: cList,
-      matches: this.getMatches()
+      matches: mList,
+      professorFiltered: pRes,
+      filtered: fRes,
+      paginatedmatches: pgRes
     });
+    const pRes = (this.state.selectedProfessor.length === null? this.state.professors: this.state.matches.filter(m => m.professor === this.state.selectedProfessor.professor));
+    const fRes = this.state.selectedCourse.length === null? this.state.professorFiltered: this.state.professorFiltered.filter(m => m.courseId === this.state.selectedCourse.courseId);
+    const pgRes = paginate(this.state.filtered, this.state.currentPage, this.state.pageSize);
+    
   }
 
   getProfessorList() {
     axios
       .get("/search/getAllProfessors", {})
       .then(data => {
+        console.log("got P data!");
         this.setState({
           professors: data
         });
@@ -75,11 +87,9 @@ class Search extends Component {
       })
       .then(list => {
         console.log("got CP data!");
-        //const cList = list.data.map
         this.setState({
           matches: list
         });
-        //return cList;
       })
       .catch(error => {
         console.log("Got CP Failed!", error);
@@ -130,7 +140,7 @@ class Search extends Component {
       <div className="container" style={{ fontFamily: "Crete Round" }}>
         <div className="row">
           <span id="badge" className="badge badge-warning m-2">
-            Got {filtered.length} Results!
+            Got {this.state.filtered.length} Results!
           </span>
         </div>
         <div className="row">
@@ -169,7 +179,7 @@ class Search extends Component {
                 </tr>
               </thead>
               <tbody>
-                {paginatedmatches.map(match => (
+                {this.state.paginatedmatches.map(match => (
                   <tr key={match._id}>
                     <th scope="row" />
                     <td>{match.courseId}</td>
@@ -202,7 +212,7 @@ class Search extends Component {
               </tbody>
             </table>
             <Pagination
-              itemsCount={filtered.length}
+              itemsCount={this.state.filtered.length}
               pageSize={this.state.pageSize}
               onPageChange={this.handlePageChange}
               currentPage={this.state.currentPage}
