@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import Navbar from "./components/NavBar";
+import Footer from "./components/Footer";
 import Landing from "./components/Landing";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
-import Footer from "./components/Footer";
 import Search from "./components/Search";
 import NotFound from "./components/NotFound";
 import Comment from "./components/Comment";
-import "./App.css";
+
 
 
 export default class App extends Component {
@@ -29,9 +29,7 @@ return (
       <Redirect to="/not-found" />
     </Switch>
   </div>
-  <div>
-  
-  </div>
+  <Footer />
 </div>
 );
 }

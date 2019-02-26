@@ -2,37 +2,39 @@ import React from "react";
 
 const Landing = () => {
   return (
-<div style={{fontFamily:"Noto Sans"}}>
-<div className="container">
-    <div className="container">
-        <h1 className="display-3">Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a className="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    <div style={{fontFamily:"Crete Round"}}>
+
+    <div className="jumbotron p-md-5 text-white rounded bg-warning">
+    <div className="col-md px-0">
+    <h1 className="display-4 font-italic">Welcome</h1>
+    <p className="lead my-3">Course Advisor is an online platform designd for Northeastern University Sillicon Valley campus students to share experience and write comments for a specific Computer Science course or professor</p>
+
     </div>
-</div>
+    </div>
 
 <div className="container">
-    <div className="row">
-        <div className="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a className="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div className="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a className="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div className="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a className="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-        </div>
-    </div>
+<div className="row m-4">
+<div className="col-md-4">
+<h2>Register Today!</h2>
+<p> Simply register and login, then you can search for all the fake courses and comments!</p>
+</div>
+<div className="col-md-4">
+<h2>Comments</h2>
+<p> Able to view other students comments according to a course&professor, like it, and add your own comment</p>
+</div>
+<div className="col-md-4">
+<h2>Upcoming...</h2>
+<ul>
+<li>Verified user icon with neu email</li>
+<li>Reply to a posted comment</li>
+<li>Real course and comment data</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 
-    );
+);
 };
 
 export default Landing;

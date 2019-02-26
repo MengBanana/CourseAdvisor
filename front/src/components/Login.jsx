@@ -91,7 +91,7 @@ class Login extends Component {
     );
 
     return (
-      <div className="container" style={{fontFamily:"Noto Sans"}}>
+      <div className="container" style={{fontFamily:"Crete Round"}}>
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>

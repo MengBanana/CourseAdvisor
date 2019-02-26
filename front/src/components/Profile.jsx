@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import jwt_decode from "jwt-decode";
+// import { getComments } from "../services/getComments";
 
 class Profile extends Component {
   constructor() {
@@ -10,27 +11,29 @@ class Profile extends Component {
       last_name: "",
       email: "",
       bio: "",
-      image: "",
-      errors: {}
+      errors: {},
+      // comments: []
     };
   }
 
-  componentDidMount() {
+/*  componentDidMount() {
     const token = localStorage.usertoken;
     const decode = jwt_decode(token);
+    // const comments = getComments();
     this.setState({
       username: decode.username,
       first_name: decode.first_name,
       last_name: decode.last_name,
       email: decode.email,
-      bio: decode.bio
+      bio: decode.bio,
+      // comments:comments
     });
-  }
+  }*/
 
   render() {
     return (
-      <div className="container">
-        <div calssName="jumbotron mt-5">
+      <div className="container" style={{fontFamily:"Noto Sans"}}>
+        <div className="jumbotron mt-5 bg-warning">
           <div className="col-sm-8 mx-auto">
             <h1 className="text-center"> PROFILE</h1>
           </div>

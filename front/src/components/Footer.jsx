@@ -2,16 +2,17 @@ import React, { Component } from "react";
 
 
 
-const style = {
-  backgroundColor: "#F8F8F8",
+var style = {
   borderTop: "1px solid #E7E7E7",
+  marginTop: "50px",
   textAlign: "right",
   padding: "20px",
-  position: "fixed",
+  width: "auto",
   left: "0",
   bottom: "0",
   height: "60px",
   width: "100%",
+  fontFamily:'Gloria Hallelujah'
 };
 
 export default class Footer extends Component {

@@ -51,21 +51,22 @@ class Comment extends Component {
         console.log(this.state.comments);
         const {comments} = this.state;
         return (
-            <div style={{fontFamily:"Noto Sans"}}>
-            <div className="jumbotron-fluid p-md-5 text-white rounded bg-info">
+            <div style={{fontFamily:"Crete Round"}}>
+            <div className="jumbotron-fluid p-md-5 text-white rounded bg-warning">
             <div className="col-md px-0">
             <h1 className="display-4 font-italic">This is Course Description</h1>
             <p className="lead my-3">This is Professor Descriptionhis is Professor Descriptionhis is Professor Descriptionhis is Professor Descriptionhis is Professor Descriptionhis is Professor Descriptionhis is Professor Descriptionhis is Professor Descriptionhis is Professor Description</p>
+            <span id="badge" className="badge badge-info m-2">Got {comments.length} Comments!</span>
             </div>
             </div>
             <div className="row">
             { comments.map(comment => ( 
               <div key={comment._id} className="card col-3 m-4" style={{borderRadius:"10%"}}>
               <div className="card-body">
-              <h5 className="card-title" style={{fontSize: "24px"}}>{comment.courseId}:{comment.courseName}</h5>
-              <h5 className="card-title" style={{fontSize: "18px"}}>{comment.professor}</h5>
+              <h5 className="card-title" style={{fontSize: "22px"}}>{comment.courseId}:{comment.courseName}</h5>
+              <h5 className="card-title" style={{fontSize: "16px"}}>{comment.professor}</h5>
               <div>
-              <p className="card-text" style={{fontSize: "15px", color:"orange"}}>"{comment.comment}"</p>
+              <p className="card-text" style={{fontSize: "13px", color:"orange"}}>"{comment.comment}"</p>
               <p id="user" className="card-text float-right " style={{fontSize: "10px", color:"grey"}}>-by {comment.username}</p>
               </div>
               <Like liked={comment.liked } onClick={ () => this.handleLike(comment)} />

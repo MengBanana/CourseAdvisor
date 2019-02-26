@@ -23,10 +23,10 @@ export default class NavBar extends Component {
     const userLink = (
       <ul className="navbar-nav">
         <li className="nav-item">
-          <NavLink className="nav-link" activeClassName="active" to="/search">Home</NavLink>
+          <NavLink className="nav-link" activeClassName="active" to="/search">Search</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" activeClassName="active" to="/profile">User</NavLink>
+          <NavLink className="nav-link" activeClassName="active" to="/profile">username</NavLink>
         </li>
         <li className="nav-item">
           <a href="/" onClick={this.logOut.bind(this)} className="nav-link">
@@ -37,7 +37,7 @@ export default class NavBar extends Component {
     );
 
     return (
-      <div className="container" style={{fontFamily:"ZCOOL QingKe HuangYou"}}>
+      <div className="container" style={{fontFamily:'Gloria Hallelujah'}}>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="collapse navbar-collapse justify-content-md-center">
             <ul className="navbar-nav mr-auto">

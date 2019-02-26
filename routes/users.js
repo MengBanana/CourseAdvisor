@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
 
-var url = 
+var url = "mongodb://meng:dbdb123@ds145895.mlab.com:45895/ratecourse";
 var db;
 mongoClient.connect(url, function(error, client) {
     assert.equal(error, null);
