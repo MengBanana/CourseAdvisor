@@ -84,7 +84,7 @@ class Search extends Component {
       });
   }
 
-  getMatches() {
+/*  getMatches() {
     axios
       .get("/search/getMatches", {
         params: {
@@ -103,7 +103,7 @@ class Search extends Component {
       .catch(error => {
         console.log("Got CP Failed!", error);
       });
-  }
+  }*/
 
   /*    handleDelete(match) {
         const matches = this.state.matches.filter(m => m._id !== match._id);
@@ -145,6 +145,16 @@ class Search extends Component {
   }
 
   render() {
+  	const {
+			selectedProfessor,
+			selectedCourse,
+			matches: allmatches,
+			currentPage,
+			pageSize
+		} = this.state;
+		const professorFiltered = selectedProfessor && selectedProfessor.description ? allmatches.filter(m => m.professor === selectedProfessor.professor) : allmatches;
+		const filtered = selectedCourse && selectedCourse.description ? professorFiltered.filter(m => m.courseId === selectedCourse.courseId) : professorFiltered;
+		const paginatedmatches = paginate(filtered, currentPage, pageSize);
     return (
       <div className="container" style={{ fontFamily: "Crete Round" }}>
         <div className="row">
@@ -188,7 +198,7 @@ class Search extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.paginatedmatches.map(match => (
+                {paginatedmatches.map(match => (
                   <tr key={match._id}>
                     <th scope="row" />
                     <td>{match.courseId}</td>
