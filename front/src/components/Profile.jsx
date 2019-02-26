@@ -12,7 +12,6 @@ class Profile extends Component {
       email: "",
       bio: "",
       errors: {},
-      // comments: []
     };
   }
 

@@ -5,6 +5,7 @@ import { getCommentsByQuery } from "../services/getComments";
 // import { getCourse} from "../services/getCourses";
 import Like from "./like";
 import Popup from "reactjs-popup";
+import axios from "axios";
 
 // list all the comments comment professor and course
 class Comment extends Component {
@@ -12,11 +13,15 @@ class Comment extends Component {
     constructor(props) {
         super(props);
         this.handleLike = this.handleLike.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
         // this.handleOnClickAddComment = this.handleOnClickAddComment.bind(this);
         this.state =  {
             courseId:this.props.match.params.courseId,
             professor:this.props.match.params.professor,
             comments:[],
+            newComment: ""
             // courseInstance: [],
             // professorInstance: []
         }
@@ -43,6 +48,39 @@ class Comment extends Component {
             );
         console.log(comment);
     }
+
+    onChange(e) {
+    this.setState(
+      {
+        [e.target.name]: e.target.value
+      }
+    );
+  }  
+
+  onSubmit(e) {
+    e.preventDefault();
+    this.addToDB();
+    //<Redirect to="/search" />;
+  } 
+
+    addToDB() {
+    axios
+      .post("/users/comment", {
+        data: {
+          username: "xz2969",
+          professor: this.state.professor,
+          courseId: this.state.courseId,
+          courseName: this.state.courseName,
+          comment: this.state.newComment
+        }
+      })
+      .then(() => {
+          this.props.history.push(`/comment/${this.state.courseId}/${this.state.professor}`);
+        })
+      .catch(error => {
+        console.log("Comment Failed!");
+      });
+  }
 
 
     render() {
@@ -94,12 +132,12 @@ class Comment extends Component {
             <div className="modal-body mx-3">
             <div className="md-form mb-5">
             <i className="far fa-comments prefix grey-text"></i>
-            <textarea type="textarea" id="defaultForm" className="form-control"/>
+            <textarea type="textarea" id="defaultForm" name="newComment" className="form-control" value={this.state.newComment} onChange={this.onChange}/>
             </div>
 
             </div>
             <div className="modal-footer d-flex justify-content-center">
-            <button className="btn btn-info">Submit</button>
+            <button className="btn btn-info" onClick={this.onSubmit}>Submit</button>
             </div>
             </div>
             </div>
