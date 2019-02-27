@@ -18,27 +18,61 @@ class Comment extends Component {
             courseId:this.props.match.params.courseId,
             professor:this.props.match.params.professor,
             comments:["comments"],
-            newComment: ""
-            // courseInstance: [],
-            // professorInstance: []
+            newComment: "",
+            professorD: "",
+            courseD: "",
+            courseName: "",
+            pTitle: ""
         }
     }
 
-/*    async componentDidMount() {
-        const comments = await getCommentsByQuery(this.state.courseId, this.state.professor);
-        //const courseInstance = await getCourse(this.state.courseId);
-        //const professorInstance= await getProfessor(this.state.professor);
-        this.setState (
-            {comments:comments},
-            //{courseInstance:courseInstance},
-            //{professorInstance:professorInstance}
-            )
-    }*/
  componentDidMount() {
+    this.getPD();
+    this.getCD();
     this.getComments();
   }
 
-    getComments() {
+    getPD() { // professor description
+    axios
+      .get("/search/getPD", {
+          params: {
+          professor: this.state.professor,
+        }
+      })
+      .then(data => {
+        console.log("got professor description!");
+        console.log(data);
+        this.setState ({
+          professorD: data.data[0].description,
+          pTitle: data.data[0].title
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+     getCD() { // comment description
+    axios
+      .get("/search/getCD", {
+          params: {
+          courseId: this.state.courseId
+        }
+      })
+      .then(data => {
+        console.log("got course description!");
+        console.log(data);
+        this.setState ({
+          courseD: data.data[0].description,
+          courseName: data.data[0].courseName
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+     getComments() {
     axios
       .get("/search/getComments", {
           params: {
@@ -86,7 +120,6 @@ class Comment extends Component {
         this.setState(
             {comments:comments}
             );
-        console.log(comment);
     }
 
     onChange(e) {
@@ -103,53 +136,33 @@ class Comment extends Component {
     //<Redirect to="/search" />;
   } 
 
-/*  addToDB() {
-    axios
-      .post("/users/comment", {
-        data: {
-          username: "xz2969",
-          professor: this.state.professor,
-          courseId: this.state.courseId,
-          courseName: this.state.courseName,
-          comment: this.state.newComment
-        }
-      })
-      .then(() => {
-        this.props.history.push(`/comment/${this.state.courseId}/${this.state.professor}`);
-      })
-      /*.catch(error => {
-        console.log("Comment Failed!");
-        console.log(error);
-      });
-      .then(response => { 
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error.response);
-      });
-  }
-*/
 
     render() {
-        // console.log(this.state.courseInstance);
-        // console.log(this.state.professorInstance);
-        console.log(this.state.comments);
+/*        const style ={
+          position: "fixed",
+          left: "10px",
+          bottom: "10px"
+        }*/
         const {comments} = this.state;
+        let i=0;
         return (
             <div style={{fontFamily:"Crete Round"}}>
             <div className="jumbotron-fluid p-md-5 text-white rounded bg-warning" style={{opacity:"0.8"}}>
-            <div className="col-md px-0">
-            <h1 className="display-4 font-italic">This is Course Description</h1>
-            <p className="lead my-3">This is Professor Descriptionhis is Professor Descriptionhis is Professor Descriptionhis is Professor Descriptionhis is Professor Descriptionhis is Professor Descriptionhis is Professor Descriptionhis is Professor Descriptionhis is Professor Description</p>
+            <div className="col-12 px-0">
+            <h1 className="font-italic">{this.state.courseId}:{this.state.courseName}</h1>
+            <p style={{fontSize: "13px"}}>{this.state.courseD}</p>
+            </div>
+            <div className="col-12 px-0">
+            <h3 className="font-italic">{this.state.professor}</h3>
+            <h6 style={{fontSize: "13px"}}>{this.state.pTitle}</h6>
+            <p style={{fontSize: "13px"}}>{this.state.professorD}</p>
             <span id="badge" className="badge badge-info m-2">Got {comments.length} Comments!</span>
             </div>
             </div>
             <div className="row">
             { comments.map(comment => ( 
-              <div key={comment._id} className="card col-3 m-4" style={{borderRadius:"10%"}}>
+              <div key={i++} className="card col-3 m-4" style={{borderRadius:"10%"}}>
               <div className="card-body">
-              <h5 className="card-title" style={{fontSize: "22px"}}>{comment.courseId}:{comment.courseName}</h5>
-              <h5 className="card-title" style={{fontSize: "16px"}}>{comment.professor}</h5>
               <div>
               <p className="card-text" style={{fontSize: "13px", color:"orange"}}>"{comment.comment}"</p>
               <p id="user" className="card-text float-right " style={{fontSize: "10px", color:"grey"}}>-by {comment.username}</p>

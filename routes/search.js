@@ -83,4 +83,28 @@ router.post("/saveComments", function(request, response) {
   });
 });
 
+
+router.get("/getPD", function(request, response) {
+  const data = request.query;
+  db.collection("professor").find({ professor: data.professor}).toArray(function(error,result) {
+    if(error) {
+      throw error;
+    }
+    console.log("got professor description");
+    response.send(result);     
+  });
+});
+
+router.get("/getCD", function(request, response) {
+  const data = request.query;
+  db.collection("course").find({ courseId: data.courseId}).toArray(function(error,result) {
+    if(error) {
+      throw error;
+    }
+    console.log("got course description");
+    response.send(result);     
+  });
+});
+
+
 module.exports = router;
