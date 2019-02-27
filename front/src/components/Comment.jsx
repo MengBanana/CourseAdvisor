@@ -22,7 +22,7 @@ class Comment extends Component {
             professorD: "",
             courseD: "",
             courseName: "",
-            pTitle: ""
+            pTitle: "",
         }
     }
 
@@ -31,6 +31,7 @@ class Comment extends Component {
     this.getCD();
     this.getComments();
   }
+
 
     getPD() { // professor description
     axios
@@ -96,7 +97,7 @@ class Comment extends Component {
 		axios
 			.post("/search/saveComments", {
 				data: {
-          username: "xz2969",
+          username: "Cola",
           professor: this.state.professor,
           courseId: this.state.courseId,
           courseName: this.state.courseName,
@@ -133,16 +134,12 @@ class Comment extends Component {
   onSubmit(e) {
     // e.preventDefault();
     this.saveComments();
+    this.getComments();
     //<Redirect to="/search" />;
   } 
 
 
     render() {
-/*        const style ={
-          position: "fixed",
-          left: "10px",
-          bottom: "10px"
-        }*/
         const {comments} = this.state;
         let i=0;
         return (
@@ -160,12 +157,12 @@ class Comment extends Component {
             </div>
             </div>
             <div className="row">
-            { comments.map(comment => ( 
+            { comments.map(comment => (
               <div key={i++} className="card col-3 m-4" style={{borderRadius:"10%"}}>
               <div className="card-body">
               <div>
-              <p className="card-text" style={{fontSize: "13px", color:"orange"}}>"{comment.comment}"</p>
-              <p id="user" className="card-text float-right " style={{fontSize: "10px", color:"grey"}}>-by {comment.username}</p>
+              <p className="card-text" style={{fontSize: "15px", color:"orange"}}>"{comment.comment}"</p>
+              <p id="user" className="card-text row float-right " style={{fontSize: "12px", color:"grey"}}>-by {comment.username}</p>
               </div>
               <Like liked={comment.liked } onClick={ () => this.handleLike(comment)} />
               </div>
@@ -197,7 +194,7 @@ class Comment extends Component {
 
             </div>
             <div className="modal-footer d-flex justify-content-center">
-            <button className="btn btn-info" onClick={this.onSubmit}>Submit</button>
+            <button className="btn btn-info" data-dismiss="modal" onClick={this.onSubmit}>Submit</button>
             </div>
             </div>
             </div>

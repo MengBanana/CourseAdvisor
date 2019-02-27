@@ -84,33 +84,6 @@ class Search extends Component {
       });
   }
 
-/*  getMatches() {
-    axios
-      .get("/search/getMatches", {
-        params: {
-          professor: this.state.selectedProfessor,
-          course: this.state.selectedCourse,
-        }
-      })
-      .then(data => {
-        console.log("got MATCH data!");
-        const pm = paginate(data.data, this.state.currentPage, this.state.pageSize);
-        this.setState({
-          matches: data.data,
-          paginatedmatches: pm
-        });
-      })
-      .catch(error => {
-        console.log("Got CP Failed!", error);
-      });
-  }*/
-
-  /*    handleDelete(match) {
-        const matches = this.state.matches.filter(m => m._id !== match._id);
-        this.setState(
-            {matches:matches}
-            );
-    };*/
 
   handleView(courseId, professor) {
     console.log(courseId, professor);
@@ -231,7 +204,7 @@ class Search extends Component {
               </tbody>
             </table>
             <Pagination
-              itemsCount={this.state.filtered.length}
+              itemsCount={filtered.length}
               pageSize={this.state.pageSize}
               onPageChange={this.handlePageChange}
               currentPage={this.state.currentPage}
