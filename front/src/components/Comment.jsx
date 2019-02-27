@@ -147,12 +147,12 @@ class Comment extends Component {
             <div className="jumbotron-fluid p-md-5 text-white rounded bg-warning" style={{opacity:"0.8"}}>
             <div className="col-12 px-0">
             <h1 className="font-italic">{this.state.courseId}:{this.state.courseName}</h1>
-            <p style={{fontSize: "13px"}}>{this.state.courseD}</p>
+            <p style={{fontSize: "13px", color:"black"}}><span className="font-italic" style={{fontSize: "18px"}} >Course Description </span>: {this.state.courseD}</p>
             </div>
             <div className="col-12 px-0">
             <h3 className="font-italic">{this.state.professor}</h3>
-            <h6 style={{fontSize: "13px"}}>{this.state.pTitle}</h6>
-            <p style={{fontSize: "13px"}}>{this.state.professorD}</p>
+            <h6 style={{fontSize: "13px", color:"black"}}><span className="font-italic" style={{fontSize: "18px"}}>Title</span> : {this.state.pTitle}</h6>
+            <p style={{fontSize: "13px", color:"black"}}><span className="font-italic" style={{fontSize: "18px"}}>Professor Description</span> : {this.state.professorD}</p>
             <span id="badge" className="badge badge-info m-2">Got {comments.length} Comments!</span>
             </div>
             </div>
