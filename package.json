@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"yarn start\" \"cd front && yarn start\""
+    "start": "concurrently \"cd front && yarn start\" \"node ./bin/www\""
+
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
