@@ -168,7 +168,7 @@ class Comment extends Component {
               </div>
               </div>
               ))}
-            <div className="card col-3 m-4" style={{cursor: "pointer", borderRadius:"10%"}}>
+            <div className="card col-3 m-4" style={{borderRadius:"10%"}}>
             <div className="card-body">
             <div>
             <i className="far fa-plus-square fa-7x d-flex justify-content-center" style={{opacity:"0.5"}}></i>
