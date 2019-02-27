@@ -3,8 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"node ./bin/www\" \"cd front && yarn install && yarn start\""
-
+    "heroku-postbuild": "cd front && yarn install && yarn build",
+    "start": "node ./bin/www"
+  },
+  "engines": {
+    "node": "10.15.0",
+    "yarn": "1.13.0"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
