@@ -161,8 +161,8 @@ class Comment extends Component {
               <div key={i++} className="card col-3 m-4" style={{borderRadius:"10%"}}>
               <div className="card-body">
               <div>
-              <p className="card-text" style={{fontSize: "15px", color:"orange"}}>"{comment.comment}"</p>
-              <p id="user" className="card-text row float-right " style={{fontSize: "12px", color:"grey"}}>-by {comment.username}</p>
+              <p className="card-text font-italic" style={{fontSize: "15px", color:"#4f2b0e"}}>"{comment.comment}"</p>
+              <p id="user" className="card-text row float-right " style={{fontSize: "12px", color:"#ff9e4f"}}>-by {comment.username}</p>
               </div>
               <Like liked={comment.liked } onClick={ () => this.handleLike(comment)} />
               </div>
