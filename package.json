@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"cd front && yarn start\" \"node ./bin/www\""
+    "start": "concurrently \"node ./bin/www\" \"cd front && yarn install && yarn start\""
 
   },
   "dependencies": {
