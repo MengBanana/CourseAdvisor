@@ -1,19 +1,19 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 const MongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var searchRouter = require("./routes/search");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+const searchRouter = require("./routes/search");
 
-var app = express();
+const app = express();
 
 //Connection URL
-const url = "mongodb://meng:dbdb123@ds145895.mlab.com:45895/ratecourse";
+const url = process.env.MONGODB_URI || require("./loginDetails");
 
 //Use connect method to connect to the Server
 MongoClient.connect(url, function(err, client) {
