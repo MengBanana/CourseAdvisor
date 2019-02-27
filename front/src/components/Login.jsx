@@ -62,7 +62,7 @@ class Login extends Component {
         this.setState({
           loggedin: true
         });
-        this.props.history.push("/");
+        this.props.history.push("/search");
       })
       .catch(error => {
         console.log("Login Failed!");

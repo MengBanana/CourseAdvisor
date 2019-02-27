@@ -43,15 +43,9 @@ router.post("/login", function(request, response) {
     function(error,result) {
       if (result === null || result.password != data.password) {
         response.status(401).send("Username or Password not correct.");
-      } /*else {
-        const sessionToken = require('uuid/v4');
-        db.collection("usersession").insertOne(
-            { username: data.username, sessionToken: sessionToken},
-            function(error, result) {
-                response.send(sessionToken);
-            }
-        );
-      }*/
+      } else {
+        response.send(result);
+      }
     });
 });
 
