@@ -37,7 +37,7 @@ export default class NavBar extends Component {
     );
 
     return (
-      <div>
+      <div className="container">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{fontFamily:"Gloria Hallelujah"}}>
  <a className="navbar-brand" href="/"><h4>Course Advisor</h4></a>
  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
