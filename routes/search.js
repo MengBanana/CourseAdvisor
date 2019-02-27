@@ -3,17 +3,13 @@ const router = express.Router();
 const mongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
 
-var url = "mongodb://meng:dbdb123@ds145895.mlab.com:45895/ratecourse";
-var db;
+let url = process.env.MONGODB_URI || require("./loginDetails");
+let db;
 mongoClient.connect(url, function(error, client) {
   assert.equal(error, null);
   db = client.db("ratecourse");
 });
 
-// /* GET users listing. */
-// router.get("/register", function(req, res, next) {
-//  res.send("AM I HERE???");
-// });
 
 router.get("/getAllProfessors", function(err,res) {
   db.collection("professor").find().toArray(function(error,result) {
