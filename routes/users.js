@@ -27,30 +27,30 @@ router.post("/register", function(request, response) {
   });
 });
 
-router.post("/comment", function(request, response) {
+/*router.post("/comment", function(request, response) {
   const data = request.body.data;
-  db.collection("comment").insertOne(
-    { username: data.username, course:data.courseId, professor:data.professor, courseName:data.courseName, comment:data.comment },
+  db.collection("comments").insertOne(
+    { username: data.username, courseId:data.courseId, professor:data.professor, courseName:data.courseName, comment:data.comment },
     function(error, result) {
       response.send("Write Comment Successfully");
     }
   );
-});
+});*/
 
 router.post("/login", function(request, response) {
   const data = request.body.data;
   db.collection("user").findOne({ username: data.username },
     function(error,result) {
-      if (result == null || result.password != data.password) {
+      if (result === null || result.password != data.password) {
         response.status(401).send("Username or Password not correct.");
       } else {
-        // const sessionToken = require('uuid/v4');
-        // db.collection("usersession").insertOne(
-        //     { username: data.username, sessionToken: sessionToken},
-        //     function(error, result) {
-        //         response.send(sessionToken);
-        //     }
-        // );
+        const sessionToken = require('uuid/v4');
+        db.collection("usersession").insertOne(
+            { username: data.username, sessionToken: sessionToken},
+            function(error, result) {
+                response.send(sessionToken);
+            }
+        );
       }
     });
 });

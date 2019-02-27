@@ -9,7 +9,7 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      validInput: false,
+      validInput: null,
       loggedin: null,
       errors: {}
     };

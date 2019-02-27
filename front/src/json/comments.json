@@ -1,0 +1,590 @@
+{
+    "professor": "John Alexis Guerra Gómez",
+    "courseId": "CS 5610",
+    "courseName": "Web Development",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{   
+    "professor": "Ricardo Baeza-Yates",
+    "courseId": "CS 5800",
+    "courseName": "Algorithms",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{   
+    "professor": "Ricardo Baeza-Yates",
+    "courseId": "CS 5600",
+    "courseName": "Computer Systems",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{   
+    "professor": "Abraham Bagherjeiran",
+    "courseId": "CS 7610",
+    "courseName": "Foundations of Distributed Systems",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Abraham Bagherjeiran",
+    "courseId": "CS 6200",
+    "courseName": "Information Retrieval",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Suhabe Bugrara",
+    "courseId": "CS 5520", 
+    "courseName": "Mobile Application Development",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Suhabe Bugrara",
+    "courseId": "CS 5500", 
+    "courseName": "Managing Software Development",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Gao Hechen",
+    "courseId": "CS 5400",
+    "courseName": "Principles of Programming Language",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{   
+    "professor": "Gao Hechen",
+    "courseId": "CS 5200",
+    "courseName": "Database Management Systems",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{   
+    "professor": "Gao Hechen",
+    "courseId": "CS 5150",
+    "courseName": "Game Artificial Intelligence",
+    "username": "xz2969",
+    "comment": "Good"
+
+}
+{
+    "professor": "Matthew Goodwin",
+    "courseId": "CS 5100",
+    "courseName": "Foundations of Artificial Intelligence",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Matthew Goodwin",
+    "courseId": "CS 5082", 
+    "courseName": "Privacy and Security of User Accounts",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Matthew Goodwin",
+    "courseId": "CS 5010",
+    "courseName": "Programming Design Paradigm",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Matthew Goodwin",
+    "courseId": "CS 5011", 
+    "courseName": "Recitation for CS 5010",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5001",
+    "courseName": "Intensive Foundations of Computer Science",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5002",
+    "courseName": "Discrete and Data Structures",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5003", 
+    "courseName": "Recitation for CS 5001",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5004",
+    "courseName": "Object-Oriented Design",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5005",
+    "courseName": "Recitation for CS 5004",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5006",
+    "courseName": "Algorithms",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5007",
+    "courseName": "Computer Systems",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5600",
+    "courseName": "Computer Systems",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5800",
+    "courseName": "Algorithms",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5001",
+    "courseName": "Intensive Foundations of Computer Science",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5002", 
+    "courseName": "Discrete and Data Structures",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5003", 
+    "courseName": "Recitation for CS 5001",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5004",
+    "courseName": "Object-Oriented Design",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5005",
+    "courseName": "Recitation for CS 5004",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5006", 
+    "courseName": "Algorithms",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5007",
+    "courseName": "Computer Systems",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5600",
+    "courseName": "Computer Systems",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5800",
+    "courseName": "Algorithms",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Anurag Phardwaj",
+    "courseId": "CS 6200",
+    "courseName": "Information Retrieval",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Anurag Phardwaj",
+    "courseId": "CS 7610",
+    "courseName": "Foundations of Distributed Systems",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{   
+    "professor": "Anurag Phardwaj",
+    "courseId": "CS 5150",
+    "courseName": "Game Artificial Intelligence",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Anurag Phardwaj",
+    "courseId": "CS 5200",
+    "courseName": "Database Management Systems",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{   
+    "professor": "Anurag Phardwaj",
+    "courseId": "CS 5400", 
+    "courseName": "Principles of Programming Language",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Prasad Saripalli",
+    "courseId": "CS 5500",
+    "courseName": "Managing Software Development",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Prasad Saripalli",
+    "courseId": "CS 5520",
+    "courseName": "Mobile Application Development",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Chuhua Zhong",
+    "courseId": "CS 5610", 
+    "courseName": "Web Development",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Chuhua Zhong",
+    "courseId": "CS 6200",
+    "courseName": "Information Retrieval", 
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "Chuhua Zhong",
+    "courseId": "CS 7610", 
+    "courseName": "Foundations of Distributed Systems",
+    "username": "xz2969",
+    "comment": "Good"
+}
+{
+    "professor": "John Alexis Guerra Gómez",
+    "courseId": "CS 5610",
+    "courseName": "Web Development",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{   
+    "professor": "Ricardo Baeza-Yates",
+    "courseId": "CS 5800",
+    "courseName": "Algorithms",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{   
+    "professor": "Ricardo Baeza-Yates",
+    "courseId": "CS 5600",
+    "courseName": "Computer Systems",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{   
+    "professor": "Abraham Bagherjeiran",
+    "courseId": "CS 7610",
+    "courseName": "Foundations of Distributed Systems",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Abraham Bagherjeiran",
+    "courseId": "CS 6200",
+    "courseName": "Information Retrieval",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Suhabe Bugrara",
+    "courseId": "CS 5520", 
+    "courseName": "Mobile Application Development",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Suhabe Bugrara",
+    "courseId": "CS 5500", 
+    "courseName": "Managing Software Development",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Gao Hechen",
+    "courseId": "CS 5400",
+    "courseName": "Principles of Programming Language",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{   
+    "professor": "Gao Hechen",
+    "courseId": "CS 5200",
+    "courseName": "Database Management Systems",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{   
+    "professor": "Gao Hechen",
+    "courseId": "CS 5150",
+    "courseName": "Game Artificial Intelligence",
+    "username": "mengbanana",
+    "comment": "Too hard"
+
+}
+{
+    "professor": "Matthew Too hardwin",
+    "courseId": "CS 5100",
+    "courseName": "Foundations of Artificial Intelligence",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Matthew Too hardwin",
+    "courseId": "CS 5082", 
+    "courseName": "Privacy and Security of User Accounts",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Matthew Too hardwin",
+    "courseId": "CS 5010",
+    "courseName": "Programming Design Paradigm",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Matthew Too hardwin",
+    "courseId": "CS 5011", 
+    "courseName": "Recitation for CS 5010",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5001",
+    "courseName": "Intensive Foundations of Computer Science",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5002",
+    "courseName": "Discrete and Data Structures",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5003", 
+    "courseName": "Recitation for CS 5001",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5004",
+    "courseName": "Object-Oriented Design",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5005",
+    "courseName": "Recitation for CS 5004",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5006",
+    "courseName": "Algorithms",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5007",
+    "courseName": "Computer Systems",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5600",
+    "courseName": "Computer Systems",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Gust Philip",
+    "courseId": "CS 5800",
+    "courseName": "Algorithms",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5001",
+    "courseName": "Intensive Foundations of Computer Science",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5002", 
+    "courseName": "Discrete and Data Structures",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5003", 
+    "courseName": "Recitation for CS 5001",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5004",
+    "courseName": "Object-Oriented Design",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5005",
+    "courseName": "Recitation for CS 5004",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5006", 
+    "courseName": "Algorithms",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5007",
+    "courseName": "Computer Systems",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5600",
+    "courseName": "Computer Systems",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Ed Katz",
+    "courseId": "CS 5800",
+    "courseName": "Algorithms",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Anurag Phardwaj",
+    "courseId": "CS 6200",
+    "courseName": "Information Retrieval",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Anurag Phardwaj",
+    "courseId": "CS 7610",
+    "courseName": "Foundations of Distributed Systems",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{   
+    "professor": "Anurag Phardwaj",
+    "courseId": "CS 5150",
+    "courseName": "Game Artificial Intelligence",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Anurag Phardwaj",
+    "courseId": "CS 5200",
+    "courseName": "Database Management Systems",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{   
+    "professor": "Anurag Phardwaj",
+    "courseId": "CS 5400", 
+    "courseName": "Principles of Programming Language",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Prasad Saripalli",
+    "courseId": "CS 5500",
+    "courseName": "Managing Software Development",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Prasad Saripalli",
+    "courseId": "CS 5520",
+    "courseName": "Mobile Application Development",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Chuhua Zhong",
+    "courseId": "CS 5610", 
+    "courseName": "Web Development",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Chuhua Zhong",
+    "courseId": "CS 6200",
+    "courseName": "Information Retrieval", 
+    "username": "mengbanana",
+    "comment": "Too hard"
+}
+{
+    "professor": "Chuhua Zhong",
+    "courseId": "CS 7610", 
+    "courseName": "Foundations of Distributed Systems",
+    "username": "mengbanana",
+    "comment": "Too hard"
+}

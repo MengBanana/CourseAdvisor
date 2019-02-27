@@ -155,24 +155,24 @@ class Register extends Component {
                 </div>
               </div>
               <div className="form-group">
-                <label htmlFor="first_name">First name</label>
+                <label htmlFor="firstname">First name</label>
                 <input
                   type="text"
                   className="form-control"
-                  name="first_name"
+                  name="firstname"
                   placeholder="your first name"
-                  value={this.state.first_name}
+                  value={this.state.firstname}
                   onChange={this.onChange}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="last_name">Last Name</label>
+                <label htmlFor="lastname">Last Name</label>
                 <input
                   type="text"
                   className="form-control"
-                  name="last_name"
+                  name="lastname"
                   placeholder="your last name"
-                  value={this.state.last_name}
+                  value={this.state.lastname}
                   onChange={this.onChange}
                 />
               </div>  

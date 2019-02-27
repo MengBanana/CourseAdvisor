@@ -59,7 +59,7 @@ router.get("/getMatches", function(request, response) {
 
 router.get("/getComments", function(request, response) {
   const data = request.query;
-  db.collection("comment").find({ courseId: data.course, professor: data.professor}).toArray(function(error,result) {
+  db.collection("comments").find({ courseId: data.courseId, professor: data.professor}).toArray(function(error,result) {
     if(error) {
       throw error;
     }
@@ -70,11 +70,11 @@ router.get("/getComments", function(request, response) {
 
 router.post("/saveComments", function(request, response) {
   const data = request.body.data;
-  db.collection("comment").insertOne({ 
-    courseId: data.course, 
+  db.collection("comments").insertOne({ 
+    courseId: data.courseId, 
     professor: data.professor, 
     username:data.username, 
-    comment: data.comments, 
+    comment: data.comment
   }),(function(error) {
     if(error) {
       throw error;
