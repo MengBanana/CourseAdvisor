@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 export default class NavBar extends Component {
   logOut(e) {
     e.preventDefault();
+    /* CodeReview <David>: localStorage never added items */
     localStorage.removeItem("usertoken");
   }
 

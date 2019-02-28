@@ -95,6 +95,7 @@ class Comment extends Component {
     axios
       .post("/search/saveComments", {
         data: {
+          /* CodeReview <David>: username never changed */
           username: "demo",
           professor: this.state.professor,
           courseId: this.state.courseId,

@@ -64,6 +64,7 @@ class Login extends Component {
           loggedin: true
         });
         alert("Login succeed");
+        /* CodeReview <David> add item to localStorage here */
         this.props.history.push("/search");
       })
       .catch(error => {
