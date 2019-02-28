@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
-
-
-var style = {
+let style = {
   borderTop: "1px solid #E7E7E7",
   marginTop: "50px",
   textAlign: "right",

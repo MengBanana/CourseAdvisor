@@ -1,3 +1,5 @@
+
+/* eslint react/prop-types: 0 */
 import React, { Component } from "react";
 import axios from "axios";
 import {Alert} from "reactstrap";
@@ -52,7 +54,6 @@ class Register extends Component {
         errors : "Username and password are required."
       });
     }
-    //<Redirect to="/search" />;
   }  
 
 
@@ -70,15 +71,15 @@ class Register extends Component {
         }
       })
       .then(() => {
-          this.setState({
+        this.setState({
           registered: true,
-           });
-          alert("Registered!");
-          this.props.history.push("./login");
-        })
+        });
+        alert("Registered!");
+        this.props.history.push("./login");
+      })
       .catch(error => {
         console.log("Registered Failed!");
-        var errorMessage;
+        let errorMessage;
         if (error.message.includes(401)){
           errorMessage = "Username or Password not correct.";
         } else if (error.message.includes(409)) {
@@ -93,20 +94,20 @@ class Register extends Component {
   }
 
   render() {
-    var success = (
+    let success = (
       <Alert color="success">
         Registered!
       </Alert>
     );
 
-    var failed = (
+    let failed = (
       <Alert color="danger">
         Error: {this.state.errors}
       </Alert>
       
     );
 
-    var info = (
+    let info = (
       <Alert color="light">
         * username and password are required *
       </Alert>
@@ -124,33 +125,33 @@ class Register extends Component {
               <div className="form-group">
                 <label htmlFor="username">Username</label>
                 <div className="input-group mb-2 mr-sm-2">
-    <div className="input-group-prepend">
-      <div className="input-group-text"><i className="fas fa-user"></i></div>
-    </div>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="username"
-                  placeholder="username"
-                  value={this.state.username}
-                  onChange={this.onChange}
-                />
+                  <div className="input-group-prepend">
+                    <div className="input-group-text"><i className="fas fa-user"></i></div>
+                  </div>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="username"
+                    placeholder="username"
+                    value={this.state.username}
+                    onChange={this.onChange}
+                  />
                 </div>
               </div>
               <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <div className="input-group mb-2 mr-sm-2">
-    <div className="input-group-prepend">
-      <div className="input-group-text"><i className="fas fa-unlock-alt"></i></div>
-    </div>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  placeholder="password"
-                  value={this.state.password}
-                  onChange={this.onChange}
-                />
+                  <div className="input-group-prepend">
+                    <div className="input-group-text"><i className="fas fa-unlock-alt"></i></div>
+                  </div>
+                  <input
+                    type="password"
+                    className="form-control"
+                    name="password"
+                    placeholder="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
+                  />
                 </div>
               </div>
               <div className="form-group">
@@ -178,34 +179,34 @@ class Register extends Component {
               <div className="form-group">
                 <label htmlFor="email">E-mail</label>
                 <div className="input-group mb-2 mr-sm-2">
-    <div className="input-group-prepend">
-      <div className="input-group-text"><i className="fas fa-envelope"></i></div>
-    </div>
-                <input
-                  type="email"
-                  className="form-control"
-                  name="email"
-                  placeholder="E-mail address"
-                  value={this.state.email}
-                  onChange={this.onChange}
-                />
-              </div> 
+                  <div className="input-group-prepend">
+                    <div className="input-group-text"><i className="fas fa-envelope"></i></div>
+                  </div>
+                  <input
+                    type="email"
+                    className="form-control"
+                    name="email"
+                    placeholder="E-mail address"
+                    value={this.state.email}
+                    onChange={this.onChange}
+                  />
+                </div> 
               </div> 
               <div className="form-group">
                 <label htmlFor="bio">Bio</label>
                 <div className="input-group mb-2 mr-sm-2">
-    <div className="input-group-prepend">
-      <div className="input-group-text"><i className="fas fa-user-graduate"></i></div>
-    </div>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="bio"
-                  placeholder="eg. 2018 Spring Align Student"
-                  value={this.state.bio}
-                  onChange={this.onChange}
-                />
-              </div> 
+                  <div className="input-group-prepend">
+                    <div className="input-group-text"><i className="fas fa-user-graduate"></i></div>
+                  </div>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="bio"
+                    placeholder="eg. 2018 Spring Align Student"
+                    value={this.state.bio}
+                    onChange={this.onChange}
+                  />
+                </div> 
               </div> 
               
               <button

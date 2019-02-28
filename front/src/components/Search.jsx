@@ -1,3 +1,4 @@
+/* eslint react/prop-types: 0 */
 import React, { Component } from "react";
 import Like from "./like";
 import ListGroup from "./ListGroup";
@@ -9,7 +10,6 @@ import axios from "axios";
 class Search extends Component {
   constructor(props) {
     super(props);
-    // this.handleDelete = this.handleDelete.bind(this);
     this.handleLike = this.handleLike.bind(this);
     this.handleProfessorSelect = this.handleProfessorSelect.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -24,9 +24,6 @@ class Search extends Component {
       selectedProfessor: null,
       selectedCourse: null,
       currentPage: 1,
-      // professorFiltered: [],
-      // filtered : [],
-      // paginatedmatches: []
     };
   }
 
@@ -116,16 +113,16 @@ class Search extends Component {
   }
 
   render() {
-  	const {
-			selectedProfessor,
-			selectedCourse,
-			matches: allmatches,
-			currentPage,
-			pageSize
-		} = this.state;
-		const professorFiltered = selectedProfessor && selectedProfessor.description ? allmatches.filter(m => m.professor === selectedProfessor.professor) : allmatches;
-		const filtered = selectedCourse && selectedCourse.description ? professorFiltered.filter(m => m.courseId === selectedCourse.courseId) : professorFiltered;
-		const paginatedmatches = paginate(filtered, currentPage, pageSize);
+    const {
+      selectedProfessor,
+      selectedCourse,
+      matches: allmatches,
+      currentPage,
+      pageSize
+    } = this.state;
+    const professorFiltered = selectedProfessor && selectedProfessor.description ? allmatches.filter(m => m.professor === selectedProfessor.professor) : allmatches;
+    const filtered = selectedCourse && selectedCourse.description ? professorFiltered.filter(m => m.courseId === selectedCourse.courseId) : professorFiltered;
+    const paginatedmatches = paginate(filtered, currentPage, pageSize);
     return (
       <div className="container" style={{ fontFamily: "Crete Round" }}>
         <div className="row">
@@ -156,10 +153,10 @@ class Search extends Component {
                 <tr>
                   <th />
                   <th className="w-20" scope="col">
-                    CouseId
+                    Couse Id
                   </th>
                   <th className="w-40" scope="col">
-                    CourseName
+                    Course Name
                   </th>
                   <th className="w-25" scope="col">
                     Professor

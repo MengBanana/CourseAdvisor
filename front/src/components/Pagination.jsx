@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/* eslint react/prop-types: 0 */import React, { Component } from "react";
 import _ from "lodash";
 
 class Pagination extends Component {

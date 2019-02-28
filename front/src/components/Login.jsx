@@ -1,3 +1,4 @@
+/* eslint react/prop-types: 0 */
 import React, { Component } from "react";
 //import {Redirect} from "react-router-dom";
 import axios from "axios";
@@ -67,7 +68,7 @@ class Login extends Component {
       })
       .catch(error => {
         console.log("Login Failed!");
-        var errorMessage;
+        let errorMessage;
         if (error.message.includes(401)){
           errorMessage = "Username or Password not correct.";
         } 
@@ -103,33 +104,33 @@ class Login extends Component {
               <div className="form-group">
                 <label htmlFor="username">Username</label>
                 <div className="input-group mb-2 mr-sm-2">
-    <div className="input-group-prepend">
-      <div className="input-group-text"><i className="fas fa-user"></i></div>
-    </div>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="username"
-                  placeholder="username"
-                  value={this.state.username}
-                  onChange={this.onChange}
-                />
+                  <div className="input-group-prepend">
+                    <div className="input-group-text"><i className="fas fa-user"></i></div>
+                  </div>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="username"
+                    placeholder="username"
+                    value={this.state.username}
+                    onChange={this.onChange}
+                  />
                 </div>
               </div>
               <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <div className="input-group mb-2 mr-sm-2">
-    <div className="input-group-prepend">
-      <div className="input-group-text"><i className="fas fa-unlock-alt"></i></div>
-    </div>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  placeholder="password"
-                  value={this.state.password}
-                  onChange={this.onChange}
-                />
+                  <div className="input-group-prepend">
+                    <div className="input-group-text"><i className="fas fa-unlock-alt"></i></div>
+                  </div>
+                  <input
+                    type="password"
+                    className="form-control"
+                    name="password"
+                    placeholder="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
+                  />
                 </div>
               </div>
               <button type="submit" className="btn btn-lg btn-info btn-block">

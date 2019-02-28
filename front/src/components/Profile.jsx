@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 
 class Profile extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class Profile extends Component {
     };
   }
 
-/*  componentDidMount() {
+  /*  componentDidMount() {
     const token = localStorage.usertoken;
     const decode = jwt_decode(token);
     // const comments = getComments();
