@@ -26,7 +26,7 @@ const Landing = () => {
             <p> <br/>Search for the course section based <br/> on course and professor filters. 
             Click <br/> on view button to browse comments <br/> of the specific section, 
             Including a description of the course and professor
-            <br/><br/> & &quot;Like&quot; a student&apos;s comment and write a new comment
+            <br/><br/> &quot;Like&quot; a student&apos;s comment and write a new comment
             </p>
           </div>
           <div className="col-md-4">
