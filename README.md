@@ -28,6 +28,7 @@ Students can share their comments for the courses they've taken, and make decisi
 - [Node](https://nodejs.org/en/) and [Express](https://expressjs.com/) for back-end
 - [React](https://reactjs.org/) for front-end
 - [Bootstrap](https://getbootstrap.com/) for front-end library
+- [MongoDB](https://www.mongodb.com/) for database
 - [GitHub](https://github.com/) for development
 - [Heroku](https://www.heroku.com/home) for deployment
 
