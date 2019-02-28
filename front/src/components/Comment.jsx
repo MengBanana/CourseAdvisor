@@ -198,7 +198,7 @@ class Comment extends Component {
               </div>
             </div>
             <div className="text-center">
-              <a href="" className="btn btn-info btn-rounded mb-4" data-toggle="modal" data-target="#modalCommentForm">Add Comment</a>
+              <button className="btn btn-info btn-rounded mb-4" data-toggle="modal" data-target="#modalCommentForm">Add Comment</button>
             </div>
           </div>
         </div>

@@ -84,13 +84,17 @@ class Login extends Component {
 
     const success = (
       <Alert color="success">
-        Welcome back, {this.state.username}!
+        <p>
+          Welcome back, {this.state.username}!
+        </p>
       </Alert>
     );
 
     const failed = (
       <Alert color="danger">
-        Error: {this.state.errors}
+        <p>
+          Error: {this.state.errors}
+        </p>
       </Alert>
     );
 

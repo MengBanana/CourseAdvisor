@@ -81,7 +81,6 @@ class Search extends Component {
 
 
   handleView(courseId, professor) {
-    console.log(courseId, professor);
     this.props.history.push(`/comment/${courseId}/${professor}`);
   }
 
@@ -91,7 +90,6 @@ class Search extends Component {
     matches[index] = { ...match };
     matches[index].liked = !matches[index].liked;
     this.setState({ matches: matches });
-    console.log(match);
   }
 
   handleProfessorSelect(professor) {

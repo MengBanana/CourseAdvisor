@@ -11,7 +11,6 @@ export default class NavBar extends Component {
     const loginRegLink = (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-        // hidden search button
           <NavLink className="nav-link" activeClassName="active" style={{color:"#313a47"}} to="/search">Search</NavLink>
         </li>
         <li className="nav-item">
@@ -22,8 +21,7 @@ export default class NavBar extends Component {
         </li>
       </ul>
     );
-
-    // use after user token set
+    
     const userLink = (
       <ul className="navbar-nav">
         <li className="nav-item">

@@ -1,9 +1,7 @@
-
 /* eslint react/prop-types: 0 */
 import React, { Component } from "react";
 import axios from "axios";
 import {Alert} from "reactstrap";
-//import { Redirect } from "react-router-dom";
 
 class Register extends Component {
   constructor(props) {
@@ -96,20 +94,26 @@ class Register extends Component {
   render() {
     let success = (
       <Alert color="success">
-        Registered!
+        <p>
+          Registered!
+        </p>
       </Alert>
     );
 
     let failed = (
       <Alert color="danger">
-        Error: {this.state.errors}
+        <p>
+          Error: {this.state.errors}
+        </p>
       </Alert>
       
     );
 
     let info = (
       <Alert color="light">
-        * username and password are required *
+        <p>
+          * username and password are required *
+        </p>
       </Alert>
     );
     
