@@ -33,7 +33,7 @@ const Landing = () => {
             <h2>Upcoming...  <i className="fas fa-battery-three-quarters"></i></h2>
             <p>
               <br/>
-              Add Verified user fearture with a <br/> speical icon, need to be verified through @husky.neu.edu email address
+              Add Verified user feature with a <br/> speical icon, need to be verified through @husky.neu.edu email address
               <br/><br/>
               Save the comments your have liked in database and be able to delete, edit your own comments
               <br/><br/>
