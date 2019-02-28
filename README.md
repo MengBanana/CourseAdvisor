@@ -64,6 +64,8 @@ Author: [Yanwen Huangxu](https://github.com/YHuangxu)
 Here's the link to [Course Advisor](https://courseadvisor2019.herokuapp.com/)
 
 ## Preview
+#### Home Page
+![Home Page](https://github.com/MengBanana/CourseAdvisor/blob/master/gif/Homepage.png)
 #### Register
 ![Register](https://github.com/MengBanana/CourseAdvisor/blob/master/gif/register.gif)
 #### Login
