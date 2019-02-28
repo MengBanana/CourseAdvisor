@@ -74,7 +74,6 @@ class Register extends Component {
           registered: true,
            });
           alert("Registered!");
-          // success redirect to login
           this.props.history.push("./login");
         })
       .catch(error => {

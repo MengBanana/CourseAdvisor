@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import jwt_decode from "jwt-decode";
-// import { getComments } from "../services/getComments";
 
 class Profile extends Component {
   constructor() {

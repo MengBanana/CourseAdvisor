@@ -3,7 +3,8 @@ const router = express.Router();
 const mongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
 
-let url = process.env.MONGODB_URI || require("./loginDetails");
+
+let url = process.env.MONGODB_URI || require("./loginDetails.js");
 let db;
 mongoClient.connect(url, function(error, client) {
   assert.equal(error, null);

@@ -10,10 +10,12 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const searchRouter = require("./routes/search");
 
-const app = express();
+let app = express();
 
 //Connection URL
-const url = process.env.MONGODB_URI || require("./loginDetails");
+
+let url = process.env.MONGODB_URI || require("./routes/loginDetails.js");
+
 
 //Use connect method to connect to the Server
 MongoClient.connect(url, function(err, client) {

@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import ReactDOM from "react-dom";
 import Like from "./like";
 import ListGroup from "./ListGroup";
 import Pagination from "./Pagination";
@@ -132,7 +130,7 @@ class Search extends Component {
       <div className="container" style={{ fontFamily: "Crete Round" }}>
         <div className="row">
           <span id="badge" className="badge badge-warning m-2">
-            Got {this.state.filtered.length} Results!
+            Got { filtered.length } Results!
           </span>
         </div>
         <div className="row">

@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import queryString from "query-string";
-import { getCommentsByQuery } from "../services/getComments";
 import Like from "./like";
 import axios from "axios";
 

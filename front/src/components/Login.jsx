@@ -62,6 +62,7 @@ class Login extends Component {
         this.setState({
           loggedin: true
         });
+        alert("Login succeed");
         this.props.history.push("/search");
       })
       .catch(error => {
