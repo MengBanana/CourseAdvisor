@@ -24,9 +24,9 @@ class Search extends Component {
       selectedProfessor: null,
       selectedCourse: null,
       currentPage: 1,
-      professorFiltered: [],
-      filtered : [],
-      paginatedmatches: []
+      // professorFiltered: [],
+      // filtered : [],
+      // paginatedmatches: []
     };
   }
 
