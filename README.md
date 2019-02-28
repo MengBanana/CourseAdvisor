@@ -20,7 +20,7 @@
 </details>
 
 ## Objective
-Course Advisor is a website that collects reviews for Computer Science courses offered at NEU Silicon Valley campus.
+[Course Advisor](https://courseadvisor2019.herokuapp.com/) is a website that collects reviews for Computer Science courses offered at NEU Silicon Valley campus.
 Students can share their comments for the courses they've taken, and make decisions on course registration after viewing others' comments.
 
 ## Technics
