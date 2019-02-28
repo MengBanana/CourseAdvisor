@@ -151,7 +151,7 @@ class Search extends Component {
                 <tr>
                   <th />
                   <th className="w-20" scope="col">
-                    Course Id
+                    Couse Id
                   </th>
                   <th className="w-40" scope="col">
                     Course Name
