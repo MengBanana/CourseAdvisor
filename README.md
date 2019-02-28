@@ -1,1 +1,1 @@
-# RateCourse
+# CourseAdvisor
