@@ -73,7 +73,7 @@ Here's the link to [Course Advisor](https://courseadvisor2019.herokuapp.com/)
 ![View and Post comments](https://github.com/MengBanana/CourseAdvisor/blob/master/gif/comments.gif)
 
 ## VideoDemonstration
-[Youtube]()
+[Youtube](https://www.youtube.com/watch?v=Ju7KZzO14oA&feature=youtu.be)
 
 ## Presentation
 [Slides](https://docs.google.com/presentation/d/111vwQKgACHkRuVHX8xLBdmsqo6WY6EtT0dw8wvxTceg/edit#slide=id.p) for the presentation
