@@ -4,6 +4,15 @@ import React, { Component } from "react";
 import Like from "./like";
 import axios from "axios";
 
+/* CodeReview <Yan>: First of all, great work and beautiful user interface of your project.*/
+// It has many features and I believe it can help students when they are confused about which courses to choose.
+
+// There are some minor changes that you might want to consider. 
+// After I leave a comment, the username does not match with what I have registered and it shows the same username all the time.
+
+// Hope this can help. Good luck!
+
+
 // list all the comments comment professor and course
 class Comment extends Component {
 
